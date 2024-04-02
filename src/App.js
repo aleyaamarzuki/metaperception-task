@@ -13,6 +13,7 @@ import style from "./Components/style/perTaskStyle.module.css";
 import * as utils from "./Components/utils.js";
 import * as staircase from "./Components/PerStaircase.js";
 import * as ConfSlider from "./Components/DrawConfSlider.js";
+import * as BlameSliderGlobal from "./Components/DrawBlameSliderGlobal.js";
 import * as BlameSlider from "./Components/DrawBlameSlider.js";
 import * as ConfSliderGlobal from "./Components/DrawConfSliderGlobal.js";
 
@@ -310,7 +311,6 @@ class App extends React.Component {
         quizState: "pre",
       });
 
-      //  console.log("pre-conf begin");
       setTimeout(
         function () {
           this.quizBegin();
@@ -637,11 +637,7 @@ class App extends React.Component {
 
   handleCallbackConf(callBackValue) {
     this.setState({ confLevel: callBackValue });
-    //  console.log("Confidence is: " + callBackValue);
 
-    //  if (this.state.confLevel !== null) {
-    //    this.setState({ confMove: true });
-    //}
   }
 
   handleCallbackBlame(callBackValue) {
@@ -750,7 +746,7 @@ class App extends React.Component {
           After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to Player Z?<br />
           <br />
           <center>
-          <BlameSlider.BlameSlider
+          <BlameSliderGlobal.BlameSliderGlobal
           callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
           initialValue={this.state.blameInitial} //                  initialValue={this.state.blameInitial}
         />
@@ -793,11 +789,11 @@ class App extends React.Component {
           You have completed sorting through all of the battery cards!
           <br />
           <br />
-          After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to Player Z?
+          After going through the last {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to Player Z?
           <br />
           <br />
           <center>
-          <BlameSlider.BlameSlider
+          <BlameSliderGlobal.BlameSliderGlobal
           callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
           initialValue={this.state.blameInitial} //                  initialValue={this.state.blameInitial}
         />
@@ -1031,8 +1027,11 @@ class App extends React.Component {
       respTime: 0,
       respFbTime: 0,
       confInitial: null,
+      blameInitial: null,
       confLevel: null,
+      blameLevel: null,
       confTime: 0,
+      blameTime: 0,
       //  confMove: false,
       choice: null,
       correct: null,
