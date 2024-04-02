@@ -317,16 +317,35 @@ class App extends React.Component {
         }.bind(this),
         10
       );
-    } else if (whichButton === 3 && curInstructNum === 4) {
+    } else if (whichButton === 3 && curInstructNum === 4) { //4
+      // continue after a block break
+ 
+      this.setState({
+        instructNum: 5,
+        instructScreen: true,
+        taskScreen: false,
+        taskSection: "break",
+      });
+
+      setTimeout(
+        function () {
+          this.handleBegin();
+        }.bind(this),
+        10
+      );
+      
+    } else if (whichButton === 3 && curInstructNum === 5) { //4
       // continue after a block break
       var blockNum = this.state.blockNum + 1;
+ 
       this.setState({
-        instructScreen: false,
+        instructScreen: true,
         taskScreen: true,
         taskSection: "iti",
         trialNumInBlock: 0,
         blockNum: blockNum,
       });
+
 
       setTimeout(
         function () {
@@ -958,7 +977,7 @@ class App extends React.Component {
       instructScreen: true,
       taskScreen: false,
       quizScreen: false,
-      instructNum: 6, //5
+      instructNum: 7, //5
       taskSection: null,
     });
   }
@@ -1339,6 +1358,8 @@ class App extends React.Component {
     }
   }
 
+
+
   restBlock() {
     this.setState({
       instructScreen: true,
@@ -1346,7 +1367,9 @@ class App extends React.Component {
       taskScreen: false,
       taskSection: "break",
     });
+
   }
+
 
   redirectToNextTask() {
     document.removeEventListener("keyup", this._handleInstructKey);
