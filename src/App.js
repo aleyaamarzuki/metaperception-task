@@ -85,7 +85,7 @@ class App extends React.Component {
     var memCorrectPer: 0;
     var perCorrectPer: 0;
 
-    var trialNumTotal = 1; //150
+    var trialNumTotal = 3; //150
     var blockNumTotal = 3; //3
     var trialNumPerBlock = Math.round(trialNumTotal / blockNumTotal);
 
