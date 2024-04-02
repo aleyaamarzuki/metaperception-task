@@ -21,23 +21,23 @@ const theme = createTheme({
 const marks = [
   {
     value: 0,
-    label: "0",
+    label: "0%",
   },
   {
     value: 25,
-    label: "25",
+    label: "25%",
   },
   {
     value: 50,
-    label: "50",
+    label: "50%",
   },
   {
     value: 75,
-    label: "75",
+    label: "75%",
   },
   {
     value: 100,
-    label: "100",
+    label: "100%",
   },
 ];
 
@@ -69,7 +69,7 @@ export function BlameSlider({ callBackValue, initialValue }) {
         </ThemeProvider>
       </Box>
       <span className={style.confTextLeft}>I am wrong</span>
-      <span className={style.confTextMiddle}>Unsure</span>
+      <span className={style.confTextMiddle}>Not certain</span>
       <span className={style.confTextRight}>Player Z is wrong</span>
     </Box>
   );
