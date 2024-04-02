@@ -1531,10 +1531,10 @@ class App extends React.Component {
             <center>
             You both made the correct choice. 
             <br />
-            + 1 Point
+           <strong> + 1 Point </strong>
             <br/>
             <br/>
-            Your current point number is {this.state.pointCounter}.
+            <strong> Total Points: {this.state.pointCounter}.</strong>
               </center>
               <br />
               <br />
@@ -1553,10 +1553,10 @@ class App extends React.Component {
             <center>
             You both made the wrong choice. 
             <br />
-            - 1 Point
+            <strong> - 1 Point </strong>
             <br/>
             <br/>
-            Your current point number is {this.state.pointCounter}.
+            <strong> Total Points: {this.state.pointCounter}.</strong>
             </center>
               <br />
               <br />
@@ -1576,7 +1576,7 @@ class App extends React.Component {
               One of you has chosen the wrong battery card. 
               <br/>
             <br/>
-            Your current point number is {this.state.pointCounter}.
+            <strong> Total Points: {this.state.pointCounter}.</strong>
             <br/>
             <br/>
               Rate how likely it is that you or Player Z chose wrongly.  
