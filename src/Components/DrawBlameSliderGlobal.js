@@ -21,19 +21,19 @@ const theme = createTheme({
 const marks = [
   {
     value: 0,
-    label: "100",
-  },
-  {
-    value: 25,
-    label: "50",
-  },
-  {
-    value: 50,
     label: "0",
   },
   {
-    value: 75,
+    value: 25,
+    label: "25",
+  },
+  {
+    value: 50,
     label: "50",
+  },
+  {
+    value: 75,
+    label: "75",
   },
   {
     value: 100,
