@@ -1,20 +1,23 @@
 
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+
+
 
 import React from "react";
-import DrawFix from "./DrawFix";
-import * as DrawDots from "./DrawDots";
-import DrawBox from "./DrawBox";
-import * as DrawChoice from "./DrawChoice";
-import style from "./style/perTaskStyle.module.css";
-import * as utils from "./utils.js";
-import withRouter from "./withRouter.js";
-import * as staircase from "./PerStaircase.js";
-import * as ConfSlider from "./DrawConfSlider.js";
-import * as BlameSliderGlobal from "./DrawBlameSliderGlobal.js";
-import * as BlameSlider from "./DrawBlameSlider.js";
-import * as ConfSliderGlobal from "./DrawConfSliderGlobal.js";
+import DrawFix from "./Components/DrawFix";
+import * as DrawDots from "./Components/DrawDots";
+import DrawBox from "./Components/DrawBox";
+import * as DrawChoice from "./Components/DrawChoice";
+import style from "./Components/style/perTaskStyle.module.css";
+import * as utils from "./Components/utils.js";
+import * as staircase from "./Components/PerStaircase.js";
+import * as ConfSlider from "./Components/DrawConfSlider.js";
+import * as BlameSliderGlobal from "./Components/DrawBlameSliderGlobal.js";
+import * as BlameSlider from "./Components/DrawBlameSlider.js";
+import * as ConfSliderGlobal from "./Components/DrawConfSliderGlobal.js";
 
-import { DATABASE_URL } from "./config";
+import { DATABASE_URL } from "./Components/config";
 
 
 
@@ -26,7 +29,7 @@ import { DATABASE_URL } from "./config";
 // 1) Pre task confidence ratings
 // 2) Task with trial by trial conf ratings
 
-class PerTask extends React.Component {
+class App extends React.Component {
   //////////////////////////////////////////////////////////////////////////////////////////////
   // CONSTRUCTOR
 
@@ -52,10 +55,8 @@ class PerTask extends React.Component {
     var dateString = date + "-" + (month + 1) + "-" + year;
     var timeString = currentDate.toTimeString();
 
-
-
-    //var userID = Math.floor(100000 + Math.random() * 900000);
-    //var condition = 2;
+    var userID = Math.floor(100000 + Math.random() * 900000);
+    var condition = 2;
 
 
     const queryParams = new URLSearchParams(window.location.search);
@@ -67,9 +68,9 @@ class PerTask extends React.Component {
     //const memCorrectPer = this.props.state.memCorrectPer;
     //const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    const memCorrectPer = this.props.state.memCorrectPer;
-    const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
+    var memCorrectPer: 0;
+    var perCorrectPer: 0;
 
     var trialNumTotal = 15; //150
     var blockNumTotal = 3; //3
@@ -1611,4 +1612,4 @@ class PerTask extends React.Component {
 }
 }
 
-export default withRouter(PerTask);
+export default App;

@@ -10,6 +10,7 @@ import * as utils from "./utils.js";
 import * as staircase from "./PerStaircase.js";
 import withRouter from "./withRouter.js";
 import * as ConfSliderEx from "./DrawConfSliderExample.js";
+import * as BlameSlider from "./DrawBlameSlider.js";
 import astrodude from "./img/astronaut.png";
 
 import { DATABASE_URL } from "./config";
@@ -45,13 +46,15 @@ class PerTut extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    var trialNumTotal = 25; //26
+    var trialNumTotal = 25; //25
 
     //the stim position
     var pracStimPos = Array(Math.round(trialNumTotal / 2))
       .fill(1)
       .concat(Array(Math.round(trialNumTotal / 2)).fill(2));
     utils.shuffle(pracStimPos);
+
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,13 +98,16 @@ class PerTut extends React.Component {
       respTime: 0,
       respFbTime: 0,
       rewFbTime: 0,
+      blameTime: 0,
       choice: null,
       confLevel: null,
+      blameLevel: null,
       confTime: 0,
       confMove: null, //can only move to next trial if conf was toggled
       correct: null,
       correctMat: [], //put correct in vector, to cal perf %
       correctPer: 0,
+      blame: null,
 
       //dot paramters
       dotRadius: 5,
@@ -117,12 +123,12 @@ class PerTut extends React.Component {
 
       //quiz paramters
       quizTry: 1,
-      quizNumTotal: 4,
+      quizNumTotal: 7,
       quizNum: 0,
       quizPressed: null,
       quizCor: null,
       quizCorTotal: null,
-      quizAns: [2, 1, 2, 3],
+      quizAns: [2, 1, 2, 3, 3, 1, 3],
 
       // screen parameters
       instructScreen: true,
@@ -209,14 +215,14 @@ class PerTut extends React.Component {
     } else if (
       whichButton === 1 &&
       curInstructNum >= 7 &&
-      curInstructNum <= 9
+      curInstructNum <= 11
     ) {
       // from page 7 to 10, I can move back a page
       this.setState({ instructNum: curInstructNum - 1 });
     } else if (
       whichButton === 2 &&
       curInstructNum >= 6 &&
-      curInstructNum <= 8
+      curInstructNum <= 10
     ) {
       // from page 6 to 9, I can move forward a page
       this.setState({ instructNum: curInstructNum + 1 });
@@ -227,8 +233,11 @@ class PerTut extends React.Component {
     var curInstructNum = this.state.instructNum;
     var whichButton = keyPressed;
     if (whichButton === 3 && curInstructNum === 5) {
+
+
       this.setState({
         trialNum: 1,
+        //results: results,
         correctMat: [], //put correct in vector, to cal perf %
         responseMatrix: [true, true],
         reversals: 0,
@@ -241,14 +250,14 @@ class PerTut extends React.Component {
         }.bind(this),
         0
       );
-    } else if (whichButton === 3 && curInstructNum === 9) {
+    } else if (whichButton === 3 && curInstructNum === 11) { //
       setTimeout(
         function () {
           this.quizBegin();
         }.bind(this),
         0
       );
-    } else if (whichButton === 3 && curInstructNum === 10) {
+    } else if (whichButton === 3 && curInstructNum === 12) { //12
       setTimeout(
         function () {
           this.redirectToNextTask();
@@ -465,6 +474,10 @@ class PerTut extends React.Component {
 
   handleCallbackConf(callBackValue) {
     this.setState({ confValue: callBackValue });
+  }
+
+  handleCallbackBlame(callBackValue) {
+    this.setState({ blameLevel: callBackValue });
   }
 
   // handle key keyPressed
@@ -854,6 +867,59 @@ class PerTut extends React.Component {
 
     let instruct_text9 = (
       <div>
+        As this is a very sensitive operation, we want to make sure the chosen battery cards have a high charge as often as possible. For this, we need more people making decisions! 
+        We will be pairing you up with another player (Player Z) who has sorted the batteries earlier. 
+        You will see the same battery cards that Player Z has seen. After you choose a card and rate your confidence, you will be informed:
+        <br/>
+        <strong> Whether you’re both correct </strong>
+        <br/>
+        <strong> Whether you’re both wrong</strong>
+        <br/>
+        <strong> Whether only one person got it wrong </strong>
+        <br/>
+        In the main task, you can also earn points that you will share with Player Z! 
+        You will earn one point per correct battery sorted, but only if Player Z also chose correctly (+1). 
+        If either of you chose wrongly, no points will be earned (0). 
+        If you both chose wrongly, there will be a deduction of one point (-1).
+        You and Player Z are both eligible for a bonus of up to £x each depending on the number of points earned. Try and earn as many points as possible!
+        <br />
+        <br />
+        <center>
+          [<strong>←</strong>] [<strong>→</strong>]
+        </center>
+        </div>
+    )
+
+    let instruct_text10 = (
+      <div>
+        In cases where one player chose wrongly, you will not be told who it is. 
+        Instead, you will have to indicate the extent to which you think you or Player Z chose wrongly.
+        After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that you or Player Z is wrong</strong>. 
+        <br/>
+        If you are very sure (100%) <strong>Player Z is wrong</strong> (and you chose correctly), you would select the far right of the scale.
+        If you are very sure (100%) <strong>Player Z is correct</strong> (and you chose wrongly), you would select the far left of the scale.
+        If you are very unsure who got it wrong, you would select a rating (around 0%) between the two ends.
+        Player Z will <strong>NOT</strong> be informed of these ratings.
+        <br/>
+        This is an example scale for entering who you think is repsonible:
+        <br/>
+        <center>
+          <BlameSlider.BlameSlider
+          callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
+          initialValue={50}
+          />
+        </center>
+        <br />
+        <br />
+        <center>
+          [<strong>←</strong>] [<strong>→</strong>]
+        </center>
+      </div>
+
+    )
+
+    let instruct_text11 = (
+      <div>
         Before you begin, you have to pass a quick quiz to make sure that you
         have understood the key points of your task for today.
         <br />
@@ -877,7 +943,7 @@ class PerTut extends React.Component {
       </div>
     );
 
-    let instruct_text10 = (
+    let instruct_text12 = (
       <div>
         Amazing! You scored {this.state.quizCorTotal}/{this.state.quizNumTotal}{" "}
         for the quiz.
@@ -913,6 +979,10 @@ class PerTut extends React.Component {
         return <div>{instruct_text9}</div>;
       case 10:
         return <div>{instruct_text10}</div>;
+      case 11:
+        return <div>{instruct_text11}</div>;
+      case 12:
+        return <div>{instruct_text12}</div>;
       default:
     }
   }
@@ -990,6 +1060,55 @@ class PerTut extends React.Component {
       </div>
     );
 
+    let quiz_text5 = (
+      <div>
+        <strong>Q{this.state.quizNum}:</strong> <strong>Both</strong> you and Player Z chose the <strong>correct</strong> battery card. What is the outcome of this?
+        <br/>
+        <br/>
+        [1] No extra points are given.
+        <br/>
+        [2] A point is deducted.
+        <br/>
+        [3] A point is added.
+        <br/>
+        [4] I am unsure
+
+      </div>
+
+    );
+
+    let quiz_text6 = (
+      <div>
+        <strong>Q{this.state.quizNum}:</strong> After choosing a battery card, <strong>one</strong> of you chose <strong>wrongly</strong>. You are very sure Player Z chose wrongly. What rating would you select on the rating scale?
+        <br/>
+        <br/>
+        [1] The far right (Player Z is 100% wrong)
+        <br/>
+        [2] The far left (I am 100% wrong)
+        <br/>
+        [3] The middle (0% - unsure)
+        <br/>
+        [4] I am unsure
+      </div>
+
+    );
+
+    let quiz_text7 = (
+      <div>
+        <strong>Q{this.state.quizNum}:</strong> After choosing a battery card, one of you chose wrongly. You are completely unsure who chose wrongly. What rating would you select on the rating scale?
+        <br/>
+        <br/>
+        [1] The far right (Player Z is 100% wrong)
+        <br/>
+        [2] The far left (I am 100% wrong)
+        <br/>
+        [3] The middle (0% - unsure)
+        <br/>
+        [4] I am unsure
+      </div>
+
+    );
+
     switch (quizNum) {
       case 1:
         return <div>{quiz_text1}</div>;
@@ -999,6 +1118,12 @@ class PerTut extends React.Component {
         return <div>{quiz_text3}</div>;
       case 4:
         return <div>{quiz_text4}</div>;
+      case 5:
+        return <div>{quiz_text5}</div>;
+      case 6:
+        return <div>{quiz_text6}</div>;
+      case 7:
+        return <div>{quiz_text7}</div>;
       default:
     }
   }
@@ -1078,7 +1203,7 @@ class PerTut extends React.Component {
         this.setState({
           instructScreen: true,
           taskScreen: false,
-          instructNum: 10,
+          instructNum: 12, //10
           taskSection: "instruct",
         });
       } else if (quizCorTotal !== this.state.quizNumTotal && quizTry < 4) {
