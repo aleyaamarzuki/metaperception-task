@@ -742,7 +742,7 @@ class PerTask extends React.Component {
           You will now be taken to a page where you can take a break. But first answer the following question:
           <br/>
           <br/>
-          After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the other player?<br />
+          After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the <strong>last<strong> player?<br />
           <br />
           <center>
           <BlameSliderGlobal.BlameSliderGlobal
@@ -768,7 +768,7 @@ class PerTask extends React.Component {
           {this.state.blockNumTotal} blocks!
           <br />
           <br />
-          You can now pause for a break. In the next block you will be paired with a different player.
+          You can now pause for a break. In the next block you will be paired with a <strong>different<strong> player.
           <br />
           <br />
           <center>
@@ -788,7 +788,7 @@ class PerTask extends React.Component {
           You have completed sorting through all of the battery cards!
           <br />
           <br />
-          After going through the last {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the last player?
+          After going through the last {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the <strong>last<strong> player?
           <br />
           <br />
           <center>
