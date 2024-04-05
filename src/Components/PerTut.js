@@ -46,7 +46,7 @@ class PerTut extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    var trialNumTotal = 1; //Aleya:change to 25 after debugging
+    var trialNumTotal = 5; //Aleya:change to 25 after debugging
    // var condition = 1; // Aleya: to not show animal instructions
 
     //the stim position
