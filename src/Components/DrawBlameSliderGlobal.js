@@ -70,7 +70,7 @@ export function BlameSliderGlobal({ callBackValue, initialValue }) {
       </Box>
       <span className={style.confTextLeft}>I performed better</span>
       <span className={style.confTextMiddle}>We performed equally</span>
-      <span className={style.confTextRight}>Player Z performed better</span>
+      <span className={style.confTextRight}>Other player performed better</span>
     </Box>
   );
 }
