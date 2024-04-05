@@ -702,7 +702,8 @@ class PerTask extends React.Component {
     let instruct_text3 = (
       <div>
         <span>
-        Also, remember that we will be pairing your performance with Player Z. After you rate your confidence, you will be shown the following feedback:
+        Also, remember that we will be pairing your performance with other players. There will be 3 sections in this task, and in each section we will pair your performance with a different player. 
+        After you rate your confidence, you will be shown the following feedback:
       <center>
           <br/>
           <br/>
@@ -716,7 +717,7 @@ class PerTask extends React.Component {
           <br/> 
           <br/>
       </center>
-        If only one person got it wrong, you will have to rate the probability that you or Player Z got it wrong. 
+        If only one person got it wrong, you will have to rate the probability that you or the other player got it wrong. 
         Please do your best to select your rating accurately and do take advantage of the whole length of the rating scale.
         You will not be allowed to move on to the next set of batteries if you do not adjust the rating scale.
           <br /> <br />
@@ -741,7 +742,7 @@ class PerTask extends React.Component {
           You will now be taken to a page where you can take a break. But first answer the following question:
           <br/>
           <br/>
-          After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to Player Z?<br />
+          After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the other player?<br />
           <br />
           <center>
           <BlameSliderGlobal.BlameSliderGlobal
@@ -767,7 +768,7 @@ class PerTask extends React.Component {
           {this.state.blockNumTotal} blocks!
           <br />
           <br />
-          You can now pause for a break.
+          You can now pause for a break. In the next block you will be paired with a different player.
           <br />
           <br />
           <center>
@@ -787,7 +788,7 @@ class PerTask extends React.Component {
           You have completed sorting through all of the battery cards!
           <br />
           <br />
-          After going through the last {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to Player Z?
+          After going through the last {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the last player?
           <br />
           <br />
           <center>
@@ -1558,7 +1559,7 @@ class PerTask extends React.Component {
             <strong> Total Points: {this.state.pointCounter}</strong>
             <br/>
             <br/>
-              Rate how likely it is that you or Player Z chose wrongly.  
+              Rate how likely it is that you or the other player chose wrongly.  
               <br />
               <br />
               </center>
