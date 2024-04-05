@@ -572,8 +572,13 @@ class PerTut extends React.Component {
     } else {
       taskCond = (
         <span>
-          After we settled the animals, we attempted to restart the spaceship.
-          Unforunately, we have found that it is running low on power!
+          Welcome to spaceship!
+          <br /> <br />
+          The ship has been damaged by an asteriod hit and we are glad you are
+          here to help.
+          <br />
+          <br />
+          We have found that the spaceship is running low on power.
         </span>
       );
     }
