@@ -880,7 +880,7 @@ class PerTut extends React.Component {
         <strong> Whether you’re both wrong</strong>
         <br/>
         <strong> Whether only one person got it wrong </strong>
-        <center>
+        </center>
         <br/>
         <br />
         In the main task, you can also earn points that you will share with the other players! 
