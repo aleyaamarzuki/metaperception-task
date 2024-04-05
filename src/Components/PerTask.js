@@ -55,7 +55,7 @@ class PerTask extends React.Component {
 
 
     //var userID = Math.floor(100000 + Math.random() * 900000);
-   // var condition = 1; // Aleya uncommented this because we're only doing perceptual task
+    var condition = 1; // Aleya uncommented this because we're only doing perceptual task
 
 
     const queryParams = new URLSearchParams(window.location.search);
