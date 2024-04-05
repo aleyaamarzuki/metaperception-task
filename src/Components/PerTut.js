@@ -868,15 +868,19 @@ class PerTut extends React.Component {
     let instruct_text9 = (
       <div>
         As this is a very sensitive operation, we want to make sure the chosen battery cards have a high charge as often as possible. For this, we need more people making decisions! 
+        <br/>
+        <br/>
         We will be pairing you up with other players who have sorted the batteries earlier. 
         You will see the same battery cards that other players have seen. After you choose a card and rate your confidence, you will be informed:
         <br/>
         <br />
+        <center>
         <strong> Whether you’re both correct </strong>
         <br/>
         <strong> Whether you’re both wrong</strong>
         <br/>
         <strong> Whether only one person got it wrong </strong>
+        <center>
         <br/>
         <br />
         In the main task, you can also earn points that you will share with the other players! 
@@ -910,7 +914,7 @@ class PerTut extends React.Component {
         <br/>
         Other players will <strong>NOT</strong> be informed of these ratings.
         <br/>
-        This is an example scale for entering who you think is repsonible:
+        This is the scale you will use to rate the probability of you or the other player being wrong:
         <br/>
         <center>
           <BlameSlider.BlameSlider
