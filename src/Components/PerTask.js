@@ -38,7 +38,7 @@ class PerTask extends React.Component {
     var sectionTime = Math.round(performance.now());
 
     //when deug
-    //  const userID = 100;
+      const userID = 100; // Aleya uncommented this for debugging
     //  const date = 100;
     //  const startTime = 100;
     //
@@ -55,7 +55,7 @@ class PerTask extends React.Component {
 
 
     //var userID = Math.floor(100000 + Math.random() * 900000);
-    //var condition = 2;
+    var condition = 2; // Aleya uncommented this because we're only doing perceptual task
 
 
     const queryParams = new URLSearchParams(window.location.search);
