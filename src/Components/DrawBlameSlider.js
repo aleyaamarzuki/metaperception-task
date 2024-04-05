@@ -70,7 +70,7 @@ export function BlameSlider({ callBackValue, initialValue }) {
       </Box>
       <span className={style.confTextLeft}>I am wrong</span>
       <span className={style.confTextMiddle}>Not certain</span>
-      <span className={style.confTextRight}>Player Z is wrong</span>
+      <span className={style.confTextRight}>Other player is wrong</span>
     </Box>
   );
 }
