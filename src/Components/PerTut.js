@@ -46,7 +46,7 @@ class PerTut extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    var trialNumTotal = 25; //25
+    var trialNumTotal = 5; //Aleya:change to 25 after debugging
 
     //the stim position
     var pracStimPos = Array(Math.round(trialNumTotal / 2))
@@ -561,7 +561,7 @@ class PerTut extends React.Component {
         <span>
           Welcome to spaceship!
           <br /> <br />
-          The ship has been damaged with an asteriod hit and we are glad you are
+          The ship has been damaged by an asteriod hit and we are glad you are
           here to help.
           <br />
           <br />
