@@ -12,6 +12,7 @@ import * as staircase from "./PerStaircase.js";
 import * as ConfSlider from "./DrawConfSlider.js";
 import * as BlameSliderGlobal from "./DrawBlameSliderGlobal.js";
 import * as BlameSlider from "./DrawBlameSlider.js";
+import * as MotivationSlider from "./DrawMotivationSlider.js"
 import * as ConfSliderGlobal from "./DrawConfSliderGlobal.js";
 
 import { DATABASE_URL } from "./config";
@@ -139,6 +140,8 @@ class PerTask extends React.Component {
       confTime: 0,
       confInitial: null,
       blame: null,
+      motivationLevel: null,
+      MotivationInitial: utils.randomInt(40, 60),
       //    confMove: null, //can only move to next trial if conf was toggled
       correct: null,
       correctMat: [], //put correct in vector, to cal perf %
@@ -646,6 +649,11 @@ class PerTask extends React.Component {
   handleCallbackBlame(callBackValue) {
     this.setState({ blameLevel: callBackValue });
   }
+
+  handleCallbackMotivation(callBackValue) {
+    this.setState({ MotivationLevel: callBackValue });
+  }
+
   // To ask them for the valence rating of the noises
   // before we start the task
   instructText(instructNum) {
@@ -739,7 +747,10 @@ class PerTask extends React.Component {
           {this.state.blockNumTotal} blocks!
           <br />
           <br />
-          You will now be taken to a page where you can take a break. But first answer the following question:
+          Well done, you and the other player scored {this.state.pointCounter} points!
+          <br/>
+          <br/>
+          You will now be taken to a page where you can take a break. But first answer the following questions:
           <br/>
           <br/>
           After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the <strong>last</strong> player?<br />
@@ -749,6 +760,15 @@ class PerTask extends React.Component {
           callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
           initialValue={this.state.blameInitial} //                  initialValue={this.state.blameInitial}
         />
+        <br />
+        <br/>
+        How motivated were you to prevent the loss of points for yourself or the other player?
+        <center>
+          <MotivationSlider.MotivationSlider
+          callBackValue={this.handleCallbackMotivation.bind(this)} 
+          initialValue={this.state.MotivationInitial} //                 
+        />
+        </center>
         </center>
           <br />
           <br />
