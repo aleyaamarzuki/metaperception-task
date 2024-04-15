@@ -755,6 +755,9 @@ class PerTask extends React.Component {
           <br/>
           After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the <strong>last</strong> player?<br />
           <br />
+          <br />
+          <br />
+          <br />
           <center>
           <BlameSliderGlobal.BlameSliderGlobal
           callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
@@ -764,6 +767,10 @@ class PerTask extends React.Component {
         <br/>
         How motivated were you to prevent the loss of points for yourself or the other player?
         <center>
+          <br />
+          <br />
+          <br />
+          <br />
           <MotivationSlider.MotivationSlider
           callBackValue={this.handleCallbackMotivation.bind(this)} 
           initialValue={this.state.MotivationInitial} //                 
