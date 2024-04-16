@@ -153,7 +153,7 @@ class PerTask extends React.Component {
       results2:[],
       results3: [],
 
-      pointCounter: 0,
+      pointCounter: [0, 0, 0],
 
       //dot paramters
       dotRadius: 5,
@@ -442,10 +442,23 @@ class PerTask extends React.Component {
     var blame; 
     if (correct === 1 && results[this.state.trialNumInBlock-1] === 1) {
       blame = 1;
-      this.state.pointCounter += 1;
+      if (this.state.blockNum == 1) {
+        this.state.pointCounter[0] += 1;
+      } else if (this.state.blockNum == 2) {
+        this.state.pointCounter[1] += 1;
+      } else if (this.state.blockNum == 3) {
+        this.state.pointCounter[2] += 1;
+      }
+      
     } else if (correct === 0 && results[this.state.trialNumInBlock-1] === 0) {
       blame = 2; 
-      this.state.pointCounter -= 1;
+      if (this.state.blockNum == 1) {
+        this.state.pointCounter[0] -= 1;
+      } else if (this.state.blockNum == 2) {
+        this.state.pointCounter[1] -= 1;
+      } else if (this.state.blockNum == 3) {
+        this.state.pointCounter[2] -= 1;
+      }
     } else if ((correct === 0 && results[this.state.trialNumInBlock-1] === 1) || (correct === 1 && results[this.state.trialNumInBlock-1] === 0)) {
       blame = 3;
     };
@@ -657,6 +670,17 @@ class PerTask extends React.Component {
   // To ask them for the valence rating of the noises
   // before we start the task
   instructText(instructNum) {
+
+    let points;
+          if (this.state.blockNum == 1) {
+            points = this.state.pointCounter[0]
+            } else if (this.state.blockNum == 2) {
+              points = this.state.pointCounter[1]
+            } else if (this.state.blockNum == 3) {
+              points = this.state.pointCounter[2]
+            }
+
+    
     let instruct_text1 = (
       <div>
         <span>
@@ -747,7 +771,7 @@ class PerTask extends React.Component {
           {this.state.blockNumTotal} blocks!
           <br />
           <br />
-          Well done, you and the other player scored {this.state.pointCounter} points!
+          Well done, you and the other player scored {points} points!
           <br/>
           <br/>
           You will now be taken to a page where you can take a break. But first answer the following questions:
@@ -1527,6 +1551,15 @@ class PerTask extends React.Component {
         if (this.state.blame === 1) {
           console.log("here 1");
           this.state.blameLevel = 200;
+          let points;
+          if (this.state.blockNum == 1) {
+            points = this.state.pointCounter[0]
+            } else if (this.state.blockNum == 2) {
+              points = this.state.pointCounter[1]
+            } else if (this.state.blockNum == 3) {
+              points = this.state.pointCounter[2]
+            }
+
           text = (<div>
             <center>
             You both made the correct choice. 
@@ -1534,7 +1567,7 @@ class PerTask extends React.Component {
            <strong> + 1 Point </strong>
             <br/>
             <br/>
-            <strong> Total Points: {this.state.pointCounter}</strong>
+            <strong> Total Points: {points}       </strong>
               </center>
               <br />
               <br />
@@ -1549,6 +1582,14 @@ class PerTask extends React.Component {
         } else if (this.state.blame === 2) {
           console.log("here 2");
           this.state.blameLevel = 200;
+          let points;
+          if (this.state.blockNum == 1) {
+            points = this.state.pointCounter[0]
+            } else if (this.state.blockNum == 2) {
+              points = this.state.pointCounter[1]
+            } else if (this.state.blockNum == 3) {
+              points = this.state.pointCounter[2]
+            }
           text = (<div>
             <center>
             You both made the wrong choice. 
@@ -1556,7 +1597,8 @@ class PerTask extends React.Component {
             <strong> - 1 Point </strong>
             <br/>
             <br/>
-            <strong> Total Points: {this.state.pointCounter}</strong>
+            <strong> Total Points: {points}
+            </strong>
             </center>
               <br />
               <br />
@@ -1570,13 +1612,22 @@ class PerTask extends React.Component {
 
         } else if (this.state.blame === 3) {
           console.log("here 3");
+          let points;
+          if (this.state.blockNum == 1) {
+            points = this.state.pointCounter[0]
+            } else if (this.state.blockNum == 2) {
+              points = this.state.pointCounter[1]
+            } else if (this.state.blockNum == 3) {
+              points = this.state.pointCounter[2]
+            }
           text = (
             <div>
               <center>
               One of you has chosen the wrong battery card. 
               <br/>
             <br/>
-            <strong> Total Points: {this.state.pointCounter}</strong>
+            <strong> Total Points: {points}
+            </strong>
             <br/>
             <br/>
               Rate how likely it is that you or the other player chose wrongly.  
