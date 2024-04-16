@@ -39,7 +39,7 @@ class PerTask extends React.Component {
     var sectionTime = Math.round(performance.now());
 
     //when deug
-      const userID = 100; // Aleya uncommented this for debugging
+   //   const userID = 100; // Aleya uncommented this for debugging
     //  const date = 100;
     //  const startTime = 100;
     //
@@ -55,7 +55,7 @@ class PerTask extends React.Component {
 
 
 
-    //var userID = Math.floor(100000 + Math.random() * 900000);
+    const userID = Math.floor(100000 + Math.random() * 900000); // need to uncomment this when running real task?
     var condition = 1; // Aleya uncommented this because we're only doing perceptual task
 
 
@@ -779,6 +779,9 @@ class PerTask extends React.Component {
           <br/>
           After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the <strong>last</strong> player?<br />
           <br />
+          <br />
+          <br />
+          <br />
           <center>
           <BlameSliderGlobal.BlameSliderGlobal
           callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
@@ -788,6 +791,10 @@ class PerTask extends React.Component {
         <br/>
         How motivated were you to prevent the loss of points for yourself or the other player?
         <center>
+          <br />
+          <br />
+          <br />
+          <br />
           <MotivationSlider.MotivationSlider
           callBackValue={this.handleCallbackMotivation.bind(this)} 
           initialValue={this.state.MotivationInitial} //                 
