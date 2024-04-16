@@ -39,7 +39,7 @@ class PerTask extends React.Component {
     var sectionTime = Math.round(performance.now());
 
     //when deug
-   //   const userID = 100; // Aleya uncommented this for debugging
+      const userID = 100; // Aleya uncommented this for debugging
     //  const date = 100;
     //  const startTime = 100;
     //
@@ -55,8 +55,8 @@ class PerTask extends React.Component {
 
 
 
-    const userID = Math.floor(100000 + Math.random() * 900000); // need to uncomment this when running real task?
-    var condition = 1; // Aleya uncommented this because we're only doing perceptual task
+    //var userID = Math.floor(100000 + Math.random() * 900000);
+    var condition = 2; // Aleya uncommented this because we're only doing perceptual task
 
 
     const queryParams = new URLSearchParams(window.location.search);
@@ -769,18 +769,13 @@ class PerTask extends React.Component {
         <span>
           You have completed {this.state.blockNum} out of{" "}
           {this.state.blockNumTotal} blocks!
-          <br />
-          <br />
           Well done, you and the other player scored {points} points!
           <br/>
           <br/>
-          You will now be taken to a page where you can take a break. But first answer the following questions:
+          You will now be taken to a page where you can take a break through pressing <strong>SPACEBAR</strong>. But first answer the following questions:
           <br/>
           <br/>
           After going through the previous {this.state.trialNumInBlock} pairs of battery cards how often do you think you chose correctly compared to the <strong>last</strong> player?<br />
-          <br />
-          <br />
-          <br />
           <br />
           <center>
           <BlameSliderGlobal.BlameSliderGlobal
@@ -791,22 +786,13 @@ class PerTask extends React.Component {
         <br/>
         How motivated were you to prevent the loss of points for yourself or the other player?
         <center>
-          <br />
-          <br />
-          <br />
-          <br />
           <MotivationSlider.MotivationSlider
           callBackValue={this.handleCallbackMotivation.bind(this)} 
           initialValue={this.state.MotivationInitial} //                 
         />
         </center>
         </center>
-          <br />
-          <br />
-          <center>
-            Press the [<strong>SPACEBAR</strong>] when you are ready to
-            continue. You will not allowed to move on unless you have adjusted the scale.
-          </center>
+
         </span>
       </div>
     );
@@ -846,6 +832,15 @@ class PerTask extends React.Component {
           <BlameSliderGlobal.BlameSliderGlobal
           callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
           initialValue={this.state.blameInitial} //                  initialValue={this.state.blameInitial}
+        />
+        </center>
+        <br />
+        <br/>
+        How motivated were you to prevent the loss of points for yourself or the other player?
+        <center>
+          <MotivationSlider.MotivationSlider
+          callBackValue={this.handleCallbackMotivation.bind(this)} 
+          initialValue={this.state.MotivationInitial} //                 
         />
         </center>
           <br />
@@ -1008,7 +1003,7 @@ class PerTask extends React.Component {
       instructScreen: true,
       taskScreen: false,
       quizScreen: false,
-      instructNum: 7, //5
+      instructNum: 6, //5
       taskSection: null,
     });
   }
