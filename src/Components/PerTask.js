@@ -136,6 +136,7 @@ class PerTask extends React.Component {
       choice: null,
       confLevel: null,
       blameLevel: null,
+      blameInitial: null,
       confTimeInitial: null, //this is for the global conf time
       confTime: 0,
       confInitial: null,
