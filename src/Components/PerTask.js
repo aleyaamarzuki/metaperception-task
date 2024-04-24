@@ -90,7 +90,7 @@ class PerTask extends React.Component {
 
     var PlayerProbsOrder = PlayerProbs[Math.floor(Math.random() * 7)];
     
-    var orderValue = 1//PlayerProbs.indexOf(PlayerProbsOrder);
+    var orderValue = 1;//PlayerProbs.indexOf(PlayerProbsOrder);
 
     
     //////////////////////////////////////////////////////////////////////////////////////////////
