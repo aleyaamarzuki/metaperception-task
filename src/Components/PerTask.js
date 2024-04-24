@@ -89,7 +89,8 @@ class PerTask extends React.Component {
     var PlayerProbs = [[lowProb, mediumProb, highProb], [lowProb, highProb, mediumProb], [mediumProb, lowProb, highProb], [mediumProb, highProb, lowProb], [highProb, mediumProb, lowProb],[highProb, lowProb, mediumProb]]; 
 
     var PlayerProbsOrder = PlayerProbs[Math.floor(Math.random() * 7)];
-
+    
+    var orderValue = PlayerProbs.indexOf(PlayerProbsOrder);
 
     
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -149,6 +150,7 @@ class PerTask extends React.Component {
       correctPer: 0,
 
       PlayerProbsOrder: PlayerProbsOrder,
+      orderValue: orderValue,
 
       results1: [],
       results2:[],
@@ -1268,6 +1270,7 @@ class PerTask extends React.Component {
       correct: this.state.correct,
       correctMat: this.state.correctMat,
       correctPer: this.state.correctPer,
+      orderValue: this.state.orderValue,
 
       // staircase parameters
       responseMatrix: this.state.responseMatrix,
