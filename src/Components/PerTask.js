@@ -1263,7 +1263,7 @@ class PerTask extends React.Component {
       confInitial: this.state.confInitial,
       confLevel: this.state.confLevel,
       blameLevel: this.state.blameLevel, 
-      blameInitial: this.state.blameInitial,
+      blameInitial: this.state.blameInitial, //Aleya: added to make it save to backend
       confTime: this.state.confTime,
       correct: this.state.correct,
       correctMat: this.state.correctMat,
