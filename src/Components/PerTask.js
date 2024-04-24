@@ -136,7 +136,7 @@ class PerTask extends React.Component {
       choice: null,
       confLevel: null,
       blameLevel: null,
-      blameInitial: null,
+      blameInitial: null, //Aleya: added to ensure blameInitial appears in backend
       confTimeInitial: null, //this is for the global conf time
       confTime: 0,
       confInitial: null,
