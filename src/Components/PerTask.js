@@ -919,7 +919,7 @@ class PerTask extends React.Component {
           cards.
           <br />
           <br />
-          You will not allowed to move on unless you have adjusted the scale.
+          You will not be allowed to move on unless you have adjusted the scale.
         </center>
       </div>
     );
@@ -949,7 +949,7 @@ class PerTask extends React.Component {
           Press [SPACEBAR] to continue.
           <br />
           <br />
-          You will not allowed to move on unless you have adjusted the scale.
+          You will not be allowed to move on unless you have adjusted the scale.
         </center>
       </div>
     );
