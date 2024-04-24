@@ -88,7 +88,7 @@ class PerTask extends React.Component {
 
     var PlayerProbs = [[lowProb, mediumProb, highProb], [lowProb, highProb, mediumProb], [mediumProb, lowProb, highProb], [mediumProb, highProb, lowProb], [highProb, mediumProb, lowProb],[highProb, lowProb, mediumProb]]; 
 
-    var PlayerProbsOrder = PlayerProbs[Math.floor(Math.random() * 7)];
+    var PlayerProbsOrder = 1; //PlayerProbs[Math.floor(Math.random() * 7)];
 
 
     
