@@ -1268,7 +1268,7 @@ class PerTask extends React.Component {
       correct: this.state.correct,
       correctMat: this.state.correctMat,
       correctPer: this.state.correctPer,
-      PlayerProbsOrder: this.state.PlayerProbsOrder
+      PlayerProbsOrder: this.state.PlayerProbsOrder,
 
       // staircase parameters
       responseMatrix: this.state.responseMatrix,
