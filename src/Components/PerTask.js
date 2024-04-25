@@ -790,6 +790,8 @@ class PerTask extends React.Component {
           <br />
         </center>
         How motivated were you to prevent the loss of points for yourself or the other player?
+        <br />
+        <br/>
         <center>
           <MotivationSlider.MotivationSlider
           callBackValue={this.handleCallbackMotivation.bind(this)} 
@@ -840,6 +842,8 @@ class PerTask extends React.Component {
         <br />
         <br/>
         How motivated were you to prevent the loss of points for yourself or the other player?
+        <br />
+        <br/>
         <center>
           <MotivationSlider.MotivationSlider
           callBackValue={this.handleCallbackMotivation.bind(this)} 
