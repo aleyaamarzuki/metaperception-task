@@ -788,16 +788,14 @@ class PerTask extends React.Component {
         />
           <br />
           <br />
-          <center>
+        </center>
         How motivated were you to prevent the loss of points for yourself or the other player?
         <center>
           <MotivationSlider.MotivationSlider
           callBackValue={this.handleCallbackMotivation.bind(this)} 
           initialValue={this.state.MotivationInitial} //                 
         />
-        </center>
-        </center>
-
+          </center>
         </span>
       </div>
     );
