@@ -386,6 +386,29 @@ class PerTask extends React.Component {
     }
   }
 
+    handleGlobalBlame(keyPressed, timePressed) {
+    var whichButton = keyPressed;
+    if (
+      whichButton === 3 &&
+      this.state.instructScreen === true &&
+      this.state.blameLevel !== null
+    ) {
+      var confTime = timePressed - this.state.blameTimeInitial;
+
+      this.setState({
+        blameTime: blameTime,
+      });
+
+      setTimeout(
+        function () {
+          this.renderQuizSave();
+        }.bind(this),
+        0
+      );
+    }
+  }
+  
+
   handleResp(keyPressed, timePressed) {
     //Check first whether it is a valid press
     var respTime =
