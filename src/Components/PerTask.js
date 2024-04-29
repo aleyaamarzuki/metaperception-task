@@ -393,7 +393,7 @@ class PerTask extends React.Component {
       this.state.instructScreen === true &&
       this.state.blameLevel !== null
     ) {
-      var confTime = timePressed - this.state.blameTimeInitial;
+      var blameTime = timePressed - this.state.blameTimeInitial;
 
       this.setState({
         blameTime: blameTime,
@@ -401,7 +401,7 @@ class PerTask extends React.Component {
 
       setTimeout(
         function () {
-          this.renderQuizSave();
+          this.renderBreakSave();
         }.bind(this),
         0
       );
