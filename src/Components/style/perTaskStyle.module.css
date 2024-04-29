@@ -49,6 +49,10 @@
   text-align: center;
 }
 
+.points {
+  font-size: 28px;
+}
+
 .link:hover {
   cursor: pointer;
 }
@@ -119,10 +123,12 @@ input[type="reset"] {
   position: absolute;
   width: 150;
   height: auto;
-  zindex: -1;
+  z-index: -1;
   bottom: 10px;
   right: 0px;
 }
+
+
 
 html,
 body {
@@ -131,4 +137,9 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+.point_counter {
+  height: 100px;
+  width: 80%;
 }
