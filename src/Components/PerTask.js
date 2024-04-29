@@ -1446,7 +1446,7 @@ renderBreakSave() {
       task: task,
       userID: this.state.userID,
       date: this.state.date,
-      orderValue: this.state.orderValue,
+     // orderValue: this.state.orderValue,
       startTime: this.state.startTime,
       section: this.state.section,
       sectionTime: this.state.sectionTime,
