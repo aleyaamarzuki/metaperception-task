@@ -387,7 +387,7 @@ class PerTask extends React.Component {
     }
   }
 
-    handleGlobalBlame(keyPressed, timePressed) {
+  handleGlobalBlame(keyPressed, timePressed) {
     var whichButton = keyPressed;
     if (
       whichButton === 3 &&
@@ -1052,7 +1052,7 @@ class PerTask extends React.Component {
       instructScreen: true,
       taskScreen: false,
       quizScreen: false,
-      instructNum: 6, //5
+      instructNum: 7, //5
       taskSection: null,
     });
   }
@@ -1483,6 +1483,9 @@ renderBreakSave() {
 
 
   restBlock() {
+  
+  document.addEventListener("keyup", this._handleGlobalBlameKey);
+    
     this.setState({
       instructScreen: true,
       instructNum: 4, //3
