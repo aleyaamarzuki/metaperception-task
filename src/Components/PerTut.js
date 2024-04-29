@@ -46,8 +46,7 @@ class PerTut extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    var trialNumTotal = 5; //Aleya:change to 25 after debugging
-   // var condition = 1; // Aleya: to not show animal instructions
+    var trialNumTotal = 2; //25
 
     //the stim position
     var pracStimPos = Array(Math.round(trialNumTotal / 2))
@@ -562,7 +561,7 @@ class PerTut extends React.Component {
         <span>
           Welcome to spaceship!
           <br /> <br />
-          The ship has been damaged by an asteriod hit and we are glad you are
+          The ship has been damaged with an asteriod hit and we are glad you are
           here to help.
           <br />
           <br />
@@ -572,13 +571,8 @@ class PerTut extends React.Component {
     } else {
       taskCond = (
         <span>
-          Welcome to spaceship!
-          <br /> <br />
-          The ship has been damaged by an asteriod hit and we are glad you are
-          here to help.
-          <br />
-          <br />
-          We have found that the spaceship is running low on power.
+          After we settled the animals, we attempted to restart the spaceship.
+          Unforunately, we have found that it is running low on power!
         </span>
       );
     }
@@ -874,53 +868,50 @@ class PerTut extends React.Component {
     let instruct_text9 = (
       <div>
         As this is a very sensitive operation, we want to make sure the chosen battery cards have a high charge as often as possible. For this, we need more people making decisions! 
+        We will be pairing you up with another player (Player Z) who has sorted the batteries earlier. 
+        You will see the same battery cards that Player Z has seen. After you choose a card and rate your confidence, you will be informed:
         <br/>
-        <br/>
-        We will be pairing you up with other players who have sorted the batteries earlier. 
-        You will see the same battery cards that other players have seen. After you choose a card and rate your confidence, you will be informed:
-        <br/>
-        <br />
-        <center>
         <strong> Whether you’re both correct </strong>
         <br/>
         <strong> Whether you’re both wrong</strong>
         <br/>
         <strong> Whether only one person got it wrong </strong>
-        </center>
-        <br/>
-        <br />
-        In the main task, you can also earn points that you will share with the other players! 
-        <br/>
-        <br />
-        You will earn one point per correct battery sorted, but only if the other player also chose correctly (+1). 
-        If either of you chose wrongly, no points will be earned (0). 
-        If you both chose wrongly, there will be a deduction of one point (-1).
-        <br/>
-        <br />
-        You and other players are eligible for a bonus of up to £x each depending on the number of points earned. Try and earn as many points as possible!
         <br />
         <br />
         <center>
           [<strong>←</strong>] [<strong>→</strong>]
         </center>
         </div>
-    )
+    );
 
     let instruct_text10 = (
       <div>
+        In the main task, you can also earn points that you will share with Player Z! 
+        You will earn one point per correct battery sorted, but only if Player Z also chose correctly (+1). 
+        If either of you chose wrongly, no points will be earned (0). 
+        If you both chose wrongly, there will be a deduction of one point (-1).
+        You and Player Z are both eligible for a bonus of up to £x each depending on the number of points earned. Try and earn as many points as possible!
+        <br />
+        <br />
+        <center>
+          [<strong>←</strong>] [<strong>→</strong>]
+        </center>
+        </div>
+
+    );
+
+    let instruct_text11 = (
+      <div>
         In cases where one player chose wrongly, you will not be told who it is. 
-        Instead, you will have to indicate the extent to which you think you or the other player chose wrongly.
-        After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that you or the other player is wrong</strong>. 
+        Instead, you will have to indicate the extent to which you think you or Player Z chose wrongly.
+        After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that you or Player Z is wrong</strong>. 
         <br/>
+        If you are very sure (100%) <strong>Player Z is wrong</strong> (and you chose correctly), you would select the far right of the scale.
+        If you are very sure (100%) <strong>Player Z is correct</strong> (and you chose wrongly), you would select the far left of the scale.
+        If you are very unsure who got it wrong, you would select a rating (around 0%) between the two ends.
+        Player Z will <strong>NOT</strong> be informed of these ratings.
         <br/>
-        If you are very sure <strong>the other player is wrong</strong> (and you chose correctly), you would select the far right of the scale (100%).
-        If you are very sure <strong>the other player is correct</strong> (and you chose wrongly), you would select the far left of the scale (0%).
-        If you are unsure who got it wrong, you would select a rating (around 50%) between the two ends.
-        <br/>
-        <br/>
-        Other players will <strong>NOT</strong> be informed of these ratings.
-        <br/>
-        This is the scale you will use to rate the probability of you or the other player being wrong:
+        This is an example scale for entering who you think is repsonible:
         <br/>
         <center>
           <BlameSlider.BlameSlider
@@ -937,7 +928,7 @@ class PerTut extends React.Component {
 
     )
 
-    let instruct_text11 = (
+    let instruct_text12 = (
       <div>
         Before you begin, you have to pass a quick quiz to make sure that you
         have understood the key points of your task for today.
@@ -962,7 +953,7 @@ class PerTut extends React.Component {
       </div>
     );
 
-    let instruct_text12 = (
+    let instruct_text13 = (
       <div>
         Amazing! You scored {this.state.quizCorTotal}/{this.state.quizNumTotal}{" "}
         for the quiz.
@@ -1002,7 +993,8 @@ class PerTut extends React.Component {
         return <div>{instruct_text11}</div>;
       case 12:
         return <div>{instruct_text12}</div>;
-      default:
+      case 13:
+        return <div>{instrcut_text13}</div>;
     }
   }
 
@@ -1081,7 +1073,7 @@ class PerTut extends React.Component {
 
     let quiz_text5 = (
       <div>
-        <strong>Q{this.state.quizNum}:</strong> <strong>Both</strong> you and the other player chose the <strong>correct</strong> battery card. What is the outcome of this?
+        <strong>Q{this.state.quizNum}:</strong> <strong>Both</strong> you and Player Z chose the <strong>correct</strong> battery card. What is the outcome of this?
         <br/>
         <br/>
         [1] No extra points are given.
@@ -1098,14 +1090,14 @@ class PerTut extends React.Component {
 
     let quiz_text6 = (
       <div>
-        <strong>Q{this.state.quizNum}:</strong> After choosing a battery card, <strong>one</strong> of you chose <strong>wrongly</strong>. You are very sure the other player chose wrongly. What rating would you select on the rating scale?
+        <strong>Q{this.state.quizNum}:</strong> After choosing a battery card, <strong>one</strong> of you chose <strong>wrongly</strong>. You are very sure Player Z chose wrongly. What rating would you select on the rating scale?
         <br/>
         <br/>
-        [1] The far right (Other player is 100% wrong)
+        [1] The far right (Player Z is 100% wrong)
         <br/>
         [2] The far left (I am 100% wrong)
         <br/>
-        [3] The middle (50%)
+        [3] The middle (0% - unsure)
         <br/>
         [4] I am unsure
       </div>
@@ -1117,11 +1109,11 @@ class PerTut extends React.Component {
         <strong>Q{this.state.quizNum}:</strong> After choosing a battery card, one of you chose wrongly. You are completely unsure who chose wrongly. What rating would you select on the rating scale?
         <br/>
         <br/>
-        [1] The far right (Other player is 100% wrong)
+        [1] The far right (Player Z is 100% wrong)
         <br/>
         [2] The far left (I am 100% wrong)
         <br/>
-        [3] The middle (50%)
+        [3] The middle (0% - unsure)
         <br/>
         [4] I am unsure
       </div>
