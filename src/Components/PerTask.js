@@ -391,7 +391,8 @@ class PerTask extends React.Component {
     if (
       whichButton === 3 &&
       this.state.instructScreen === true &&
-      this.state.blameLevel !== null
+      this.state.blameLevel !== null &&
+      (this.state.curInstructNum === 4 || this.state.curInstructNum === 6)
     ) {
       var blameTime = timePressed - this.state.blameTimeInitial;
 
