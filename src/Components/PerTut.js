@@ -12,6 +12,8 @@ import withRouter from "./withRouter.js";
 import * as ConfSliderEx from "./DrawConfSliderExample.js";
 import * as BlameSlider from "./DrawBlameSlider.js";
 import astrodude from "./img/astronaut.png";
+import astronaut from "./img/astronaut2.png";
+import astronaut2 from "./img/astronaut3.png";
 
 import { DATABASE_URL } from "./config";
 
@@ -67,6 +69,9 @@ class PerTut extends React.Component {
       date: date,
       startTime: startTime,
       astrodude: astrodude,
+      astronaut: astronaut,
+      astronaut2: astronaut2,
+
 
       //section paramters
       sectionTime: sectionTime,
@@ -215,14 +220,14 @@ class PerTut extends React.Component {
     } else if (
       whichButton === 1 &&
       curInstructNum >= 7 &&
-      curInstructNum <= 11
+      curInstructNum <= 12
     ) {
       // from page 7 to 10, I can move back a page
       this.setState({ instructNum: curInstructNum - 1 });
     } else if (
       whichButton === 2 &&
       curInstructNum >= 6 &&
-      curInstructNum <= 10
+      curInstructNum <= 11
     ) {
       // from page 6 to 9, I can move forward a page
       this.setState({ instructNum: curInstructNum + 1 });
@@ -250,14 +255,14 @@ class PerTut extends React.Component {
         }.bind(this),
         0
       );
-    } else if (whichButton === 3 && curInstructNum === 11) { //
+    } else if (whichButton === 3 && curInstructNum === 12) { //11
       setTimeout(
         function () {
           this.quizBegin();
         }.bind(this),
         0
       );
-    } else if (whichButton === 3 && curInstructNum === 12) { //12
+    } else if (whichButton === 3 && curInstructNum === 13) { //12
       setTimeout(
         function () {
           this.redirectToNextTask();
@@ -556,6 +561,7 @@ class PerTut extends React.Component {
       );
     }
 
+    /*
     if (this.state.condition === 1) {
       taskCond = (
         <span>
@@ -575,7 +581,7 @@ class PerTut extends React.Component {
           Unforunately, we have found that it is running low on power!
         </span>
       );
-    }
+    }*/
 
     let instruct_text1 = (
       <div>
@@ -752,6 +758,90 @@ class PerTut extends React.Component {
     let instruct_text6 = (
       <div>
         <span>
+        As this is a very sensitive operation, we want to make sure the chosen battery cards have a high charge as often as possible. For this, we need more people making decisions! 
+        We will be pairing you up with another player (Player Z) who has sorted the batteries earlier. 
+        You will see the same battery cards that Player Z has seen. After you choose a card and rate your confidence, you will be informed:
+        <br/>
+        <br /> 
+        <br /> 
+        <strong> Whether you’re both correct </strong>
+        <br/>
+        <br /> 
+        <strong> Whether you’re both wrong</strong>
+        <br/>
+        <br /> 
+        <strong> Whether only one person got it wrong </strong>
+        <br />
+        <br />
+        <center>
+          [<strong>←</strong>] [<strong>→</strong>]
+           <br />
+           <br />
+           <br />
+           <br />
+           <img src={this.state.astronaut2} width={180} alt="astronauts" />
+           <img src={this.state.astronaut2} width={180} alt="astronauts" />
+        </center>
+        <br />
+        <br />
+        </span>
+        </div>
+    );
+
+    let instruct_text7 = (
+      <div>
+        In the main task, you can also earn points that you will share with Player Z!
+        <br /> 
+        <br /> 
+        <br /> 
+        You will earn one point per correct battery sorted, but only if Player Z also chose correctly (+1). 
+        <br /> 
+        If <strong>either of you chose wrongly</strong>, <strong>no</strong> points will be earned (0). 
+        <br /> 
+        If you <strong>both chose wrongly</strong>, there will be a <strong>deduction</strong> of one point (-1).
+        <br /> 
+        <br /> 
+        You and Player Z are both eligible for a bonus of up to £x each depending on the number of points earned. Try and earn as many points as possible!
+        <br />
+        <br />
+        <center>
+          [<strong>←</strong>] [<strong>→</strong>]
+        </center>
+        </div>
+
+    );
+
+    let instruct_text8 = (
+      <div>
+        In cases where one player chose wrongly, you will not be told who it is. 
+        Instead, you will have to indicate the extent to which you think you or Player Z chose wrongly.
+        After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that you or Player Z is wrong</strong>. 
+        <br/>
+        If you are very sure (100%) <strong>Player Z is wrong</strong> (and you chose correctly), you would select the far right of the scale.
+        If you are very sure (100%) <strong>Player Z is correct</strong> (and you chose wrongly), you would select the far left of the scale.
+        If you are very unsure who got it wrong, you would select a rating (around 0%) between the two ends.
+        Player Z will <strong>NOT</strong> be informed of these ratings.
+        <br/>
+        This is an example scale for entering who you think is repsonible:
+        <br/>
+        <center>
+          <BlameSlider.BlameSlider
+          callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
+          initialValue={50}
+          />
+        </center>
+        <br />
+        <br />
+        <center>
+          [<strong>←</strong>] [<strong>→</strong>]
+        </center>
+      </div>
+
+    );
+
+    let instruct_text9 = (
+      <div>
+        <span>
           {text2}
           <br />
           <br />
@@ -775,16 +865,13 @@ class PerTut extends React.Component {
           <br />
           <br />
           <br />
-          <center>
-            Use the ← and → keys to navigate the pages.
-            <br />
-            <br />[<strong>→</strong>]
+          <center> [<strong>→</strong>]
           </center>
         </span>
       </div>
     );
 
-    let instruct_text7 = (
+    let instruct_text10 = (
       <div>
         If you are <strong>very unsure</strong> that you made a correct
         judgement, you should select a 50% chance of being correct, or the{" "}
@@ -827,7 +914,7 @@ class PerTut extends React.Component {
       </div>
     );
 
-    let instruct_text8 = (
+    let instruct_text11 = (
       <div>
         If you are <strong>somewhat sure</strong> that you made a correct
         judgement, you should select a rating between the two ends of the scale.
@@ -865,68 +952,7 @@ class PerTut extends React.Component {
       </div>
     );
 
-    let instruct_text9 = (
-      <div>
-        As this is a very sensitive operation, we want to make sure the chosen battery cards have a high charge as often as possible. For this, we need more people making decisions! 
-        We will be pairing you up with another player (Player Z) who has sorted the batteries earlier. 
-        You will see the same battery cards that Player Z has seen. After you choose a card and rate your confidence, you will be informed:
-        <br/>
-        <strong> Whether you’re both correct </strong>
-        <br/>
-        <strong> Whether you’re both wrong</strong>
-        <br/>
-        <strong> Whether only one person got it wrong </strong>
-        <br />
-        <br />
-        <center>
-          [<strong>←</strong>] [<strong>→</strong>]
-        </center>
-        </div>
-    );
 
-    let instruct_text10 = (
-      <div>
-        In the main task, you can also earn points that you will share with Player Z! 
-        You will earn one point per correct battery sorted, but only if Player Z also chose correctly (+1). 
-        If either of you chose wrongly, no points will be earned (0). 
-        If you both chose wrongly, there will be a deduction of one point (-1).
-        You and Player Z are both eligible for a bonus of up to £x each depending on the number of points earned. Try and earn as many points as possible!
-        <br />
-        <br />
-        <center>
-          [<strong>←</strong>] [<strong>→</strong>]
-        </center>
-        </div>
-
-    );
-
-    let instruct_text11 = (
-      <div>
-        In cases where one player chose wrongly, you will not be told who it is. 
-        Instead, you will have to indicate the extent to which you think you or Player Z chose wrongly.
-        After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that you or Player Z is wrong</strong>. 
-        <br/>
-        If you are very sure (100%) <strong>Player Z is wrong</strong> (and you chose correctly), you would select the far right of the scale.
-        If you are very sure (100%) <strong>Player Z is correct</strong> (and you chose wrongly), you would select the far left of the scale.
-        If you are very unsure who got it wrong, you would select a rating (around 0%) between the two ends.
-        Player Z will <strong>NOT</strong> be informed of these ratings.
-        <br/>
-        This is an example scale for entering who you think is repsonible:
-        <br/>
-        <center>
-          <BlameSlider.BlameSlider
-          callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
-          initialValue={50}
-          />
-        </center>
-        <br />
-        <br />
-        <center>
-          [<strong>←</strong>] [<strong>→</strong>]
-        </center>
-      </div>
-
-    )
 
     let instruct_text12 = (
       <div>
@@ -994,7 +1020,7 @@ class PerTut extends React.Component {
       case 12:
         return <div>{instruct_text12}</div>;
       case 13:
-        return <div>{instrcut_text13}</div>;
+        return <div>{instruct_text13}</div>;
     }
   }
 
@@ -1214,7 +1240,7 @@ class PerTut extends React.Component {
         this.setState({
           instructScreen: true,
           taskScreen: false,
-          instructNum: 12, //10
+          instructNum: 13, //12
           taskSection: "instruct",
         });
       } else if (quizCorTotal !== this.state.quizNumTotal && quizTry < 4) {
