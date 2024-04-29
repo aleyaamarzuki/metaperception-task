@@ -69,8 +69,8 @@ export function MotivationSlider({ callBackValue, initialValue }) {
         </ThemeProvider>
       </Box>
       <span className={style.confTextLeft}>Motivated mostly <br/> for myself</span>
-      <span className={style.confTextMiddle}>Motivated for both <br/> of us equally</span>
-      <span className={style.confTextRight}>Motivated mostly <br/> for the other player</span>
+      <span className={style.confTextMiddle}>Motivated for both of us equally</span>
+      <span className={style.confTextRight}>Motivated mostly for  <br/> the other player</span>
     </Box>
   );
 }
