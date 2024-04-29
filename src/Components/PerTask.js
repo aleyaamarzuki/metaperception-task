@@ -621,6 +621,23 @@ class PerTask extends React.Component {
     }
   };
 
+    // handle key keyPressed
+  _handleGlobalBlameKey = (event) => {
+    var keyPressed;
+    var timePressed;
+
+    switch (event.keyCode) {
+      case 32:
+        //    this is spacebar
+        keyPressed = 3;
+        timePressed = Math.round(performance.now());
+        this.handleGlobalBlame(keyPressed, timePressed);
+        break;
+      default:
+    }
+  };
+  
+
   // handle key keyPressed
   _handleRespKey = (event) => {
     var keyPressed;
