@@ -327,10 +327,12 @@ class PerTask extends React.Component {
 
       setTimeout(
         function () {
-          this.handleBegin();
+          this.renderGlobalBlame();
         }.bind(this),
         10
       );
+
+
 
     } else if (whichButton === 3 && curInstructNum === 6) { //5
       // continue after a block break
@@ -550,7 +552,7 @@ class PerTask extends React.Component {
 
       setTimeout(
         function () {
-          this.renderBlame();
+          this.renderGlobalBlame();
         }.bind(this),
         0
       );
@@ -1313,7 +1315,7 @@ class PerTask extends React.Component {
     // it will deploy the next trial with spacebar keypress
   }
 
-  renderBlame() {
+  renderGlobalBlame() {
     document.addEventListener("keyup", this._handleBlameKey);
 
     var initialValue = utils.randomInt(40, 80);
@@ -1334,9 +1336,36 @@ class PerTask extends React.Component {
         blameTime: blameTime,
       });
 
+      setTimeout(
+        function () {
+          this.handleBegin();
+        }.bind(this),
+        10
+      );
+
   }
 
   renderGlobalBlame() {
+    document.addEventListener("keyup", this._handleGlobalBlameKey);
+
+
+    //randomise the pre-post initial conf value - this has changed to a scale of 0 to 150
+    var initialValue = utils.randomInt(60, 90);
+    var blameTimeInitial = Math.round(performance.now());
+
+    this.setState({
+      blameInitial: initialValue,
+      blameLevel: null,
+      blameTimeInitial: blameTimeInitial,
+      blameTime: null,
+      //  confMove: null,
+      quizScreen: false,
+      instructScreen: true,
+      taskScreen: false,
+      taskSection: "rating",
+    });
+
+
 
   }
 
