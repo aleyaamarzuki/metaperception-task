@@ -760,7 +760,7 @@ class PerTut extends React.Component {
         <span>
         As this is a very sensitive operation, we want to make sure the chosen battery cards have a high charge as often as possible. For this, we need more people making decisions! 
         We will be pairing you up with other players (3 total) one at a time who have sorted the batteries earlier. 
-        You will see the same battery cards that the other players have seen. After you choose a card and rate your confidence, you will be informed:
+        You will see the same battery cards that the other players have seen. After you choose a card, you will be informed:
         <br/>
         <br /> 
         <br /> 
@@ -853,7 +853,7 @@ class PerTut extends React.Component {
           pick.
           <br />
           <br />
-          After every choice, we will show you a rating scale to rate the{" "}
+          After every choice (and before we tell you if you and the other player got it right or wrong), we will show you a rating scale to rate the{" "}
           <strong>probability that your choice was correct</strong>:
           <br />
           <br />
