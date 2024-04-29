@@ -817,9 +817,9 @@ class PerTut extends React.Component {
         Instead, you will have to indicate the extent to which you think you or the other player chose wrongly.
         After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that you or the other player is wrong</strong>. 
         <br/>
-        If you are very sure (100%) <strong>the other player is wrong</strong> (and you chose correctly), you would select the far right of the scale.
-        If you are very sure (100%) <strong>the other player is correct</strong> (and you chose wrongly), you would select the far left of the scale.
-        If you are very unsure who got it wrong, you would select a rating (around 0%) between the two ends.
+        If you are very sure <strong>the other player is wrong</strong> (and you chose correctly), you would select the far right of the scale (100%).
+        If you are very sure <strong>the other player is correct</strong> (and you chose wrongly), you would select the far left of the scale (0%).
+        If you are very unsure who got it wrong, you would select a rating (around 50%) between the two ends.
         The other players will <strong>NOT</strong> be informed of these ratings.
         <br/>
         This is an example scale for entering who you think is repsonible:
