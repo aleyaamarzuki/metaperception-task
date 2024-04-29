@@ -1458,7 +1458,7 @@ renderBreakSave() {
     };
 
     try {
-      fetch(`${DATABASE_URL}/pre_post_conf/` + prolificID, {
+      fetch(`${DATABASE_URL}/global_blame/` + prolificID, {
         method: "POST",
         headers: {
           Accept: "application/json",
