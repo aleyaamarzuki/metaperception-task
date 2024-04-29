@@ -14,6 +14,9 @@ import * as BlameSliderGlobal from "./DrawBlameSliderGlobal.js";
 import * as BlameSlider from "./DrawBlameSlider.js";
 import * as MotivationSlider from "./DrawMotivationSlider.js"
 import * as ConfSliderGlobal from "./DrawConfSliderGlobal.js";
+import astronaut from "./img/astronaut3.png";
+import astronaut_green from "./img/astronaut3_green.png";
+import astronaut_purple from "./img/astronaut3_purple.png"; 
 
 import { DATABASE_URL } from "./config";
 
@@ -105,6 +108,9 @@ class PerTask extends React.Component {
       startTime: timeString,
       section: "task",
       sectionTime: sectionTime,
+      astronaut: astronaut,
+      astronaut_green: astronaut_green,
+      astronaut_purple: astronaut_purple,
 
       // trial timings in ms
       fixTimeLag: 1000, //1000
@@ -245,10 +251,10 @@ class PerTask extends React.Component {
     var curInstructNum = this.state.instructNum;
     var whichButton = keyPressed;
 
-    if ((whichButton === 1 && curInstructNum === 2) || (whichButton === 1 && curInstructNum === 3)) {
+    if ((whichButton === 1 && curInstructNum === 2) || (whichButton === 1 && curInstructNum === 3) || (whichButton === 1 && curInstructNum === 4)) {
       // from page 2 , I can move back a page
       this.setState({ instructNum: curInstructNum - 1 });
-    } else if ((whichButton === 2 && curInstructNum === 1) || (whichButton === 2 && curInstructNum === 2)) {
+    } else if ((whichButton === 2 && curInstructNum === 1) || (whichButton === 2 && curInstructNum === 2) || (whichButton === 2 && curInstructNum === 3)) {
       // from page 1 , I can move forward a page
       this.setState({ instructNum: curInstructNum + 1 });
     }
@@ -258,7 +264,7 @@ class PerTask extends React.Component {
     var curInstructNum = this.state.instructNum;
     var whichButton = keyPressed;
 
-    if (whichButton === 3 && curInstructNum === 3) {
+    if (whichButton === 3 && curInstructNum === 4) {
       const results1 = [];
       const results2 = [];
       const results3 = [];
@@ -308,11 +314,12 @@ class PerTask extends React.Component {
         }.bind(this),
         10
       );
-    } else if (whichButton === 3 && curInstructNum === 4) { //4
+    } else if (whichButton === 3 && curInstructNum === 5) { //4
       // continue after a block break
+
  
       this.setState({
-        instructNum: 5,
+        instructNum: 6, //5
         instructScreen: true,
         taskScreen: false,
         taskSection: "break",
@@ -325,7 +332,7 @@ class PerTask extends React.Component {
         10
       );
 
-    } else if (whichButton === 3 && curInstructNum === 5) { //4
+    } else if (whichButton === 3 && curInstructNum === 6) { //5
       // continue after a block break
       var blockNum = this.state.blockNum + 1;
  
@@ -344,7 +351,7 @@ class PerTask extends React.Component {
         }.bind(this),
         10
       );
-    } else if (whichButton === 3 && curInstructNum === 6) {
+    } else if (whichButton === 3 && curInstructNum === 7) { //6
       this.setState({
         quizState: "post",
       });
@@ -355,7 +362,7 @@ class PerTask extends React.Component {
         }.bind(this),
         10
       );
-    } else if (whichButton === 3 && curInstructNum === 7) {
+    } else if (whichButton === 3 && curInstructNum === 8) { //7
       setTimeout(
         function () {
           this.redirectToNextTask();
@@ -392,8 +399,12 @@ class PerTask extends React.Component {
     if (
       whichButton === 3 &&
       this.state.instructScreen === true &&
+<<<<<<< Updated upstream
       this.state.blameLevel !== null &&
       (this.state.curInstructNum === 4 || this.state.curInstructNum === 6)
+=======
+      this.state.blameLevel !== null
+>>>>>>> Stashed changes
     ) {
       var blameTime = timePressed - this.state.blameTimeInitial;
 
@@ -409,7 +420,10 @@ class PerTask extends React.Component {
       );
     }
   }
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
 
   handleResp(keyPressed, timePressed) {
     //Check first whether it is a valid press
@@ -623,7 +637,10 @@ class PerTask extends React.Component {
     }
   };
 
+<<<<<<< Updated upstream
     // handle key keyPressed
+=======
+>>>>>>> Stashed changes
   _handleGlobalBlameKey = (event) => {
     var keyPressed;
     var timePressed;
@@ -638,7 +655,10 @@ class PerTask extends React.Component {
       default:
     }
   };
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
 
   // handle key keyPressed
   _handleRespKey = (event) => {
@@ -717,13 +737,15 @@ class PerTask extends React.Component {
   instructText(instructNum) {
 
     let points;
-          if (this.state.blockNum == 1) {
-            points = this.state.pointCounter[0]
-            } else if (this.state.blockNum == 2) {
-              points = this.state.pointCounter[1]
-            } else if (this.state.blockNum == 3) {
-              points = this.state.pointCounter[2]
-            }
+    if (this.state.blockNum == 1) {
+      points = this.state.pointCounter[0]
+      } else if (this.state.blockNum == 2) {
+        points = this.state.pointCounter[1]
+      } else if (this.state.blockNum == 3) {
+        points = this.state.pointCounter[2]
+      };
+
+
 
     
     let instruct_text1 = (
@@ -754,8 +776,42 @@ class PerTask extends React.Component {
       </div>
     );
 
-
     let instruct_text2 = (
+      <div>
+        <span>
+        Also, remember that we will be pairing your performance with other players. There will be 3 sections in this task, and <strong> in each section we will pair your performance with a different player</strong>. 
+        After you rate your confidence, you will be shown the following feedback:
+      <center>
+          <br/>
+          <br/>
+          <strong>Whether you’re both correct (+1)</strong>
+          <br/>
+          <br/>
+          <strong>Whether you’re both wrong (-1)</strong>
+          <br/>
+          <br/>
+          <strong>Whether only one person got it wrong (0)</strong>
+          <br/> 
+          <br/>
+      </center>
+        If only one person got it wrong, you will have to rate the probability that you or the other player got it wrong. 
+        Please do your best to select your rating accurately and do take advantage of the whole length of the rating scale.
+        You will not be allowed to move on to the next set of batteries if you do not adjust the rating scale.
+          <br /> 
+          <br />
+          <center>
+            Use the ← and → keys to navigate the pages.
+            <br />
+            <br />[<strong>←</strong>][<strong>→</strong>]
+          </center>
+          
+         
+        </span>
+      </div>
+    );
+
+
+    let instruct_text3 = (
       <div>
         <span>
           After making your choice, you will then rate your confidence in your
@@ -776,40 +832,27 @@ class PerTask extends React.Component {
       </div>
     );
 
-    let instruct_text3 = (
-      <div>
-        <span>
-        Also, remember that we will be pairing your performance with other players. There will be 3 sections in this task, and in each section we will pair your performance with a different player. 
-        After you rate your confidence, you will be shown the following feedback:
-      <center>
-          <br/>
-          <br/>
-          <strong>Whether you’re both correct (+1)</strong>
-          <br/>
-          <br/>
-          <strong>Whether you’re both wrong (-1)</strong>
-          <br/>
-          <br/>
-          <strong>Whether only one person got it wrong (0)</strong>
-          <br/> 
-          <br/>
-      </center>
-        If only one person got it wrong, you will have to rate the probability that you or the other player got it wrong. 
-        Please do your best to select your rating accurately and do take advantage of the whole length of the rating scale.
-        You will not be allowed to move on to the next set of batteries if you do not adjust the rating scale.
-          <br /> <br />
-          <center>
-            When you are ready, please press the [<strong>SPACEBAR</strong>] to
-            start.
-            <br />
-            <br />[<strong>←</strong>]
-          </center>
-         
-        </span>
-      </div>
-    )
-
     let instruct_text4 = (
+      <div>
+        You are now starting to play against Player 1:
+        <br/>
+        <br/>
+        <br/>
+        <center>
+        <img src={this.state.astronaut_green} width={180} alt="astronaut 1" />
+        </center>
+        <br/>
+        <br/>
+        <center>
+            Press the [<strong>SPACEBAR</strong>] when you are ready to
+            start.
+          </center>
+      </div>
+
+    );
+
+
+    let instruct_text5 = (
       <div>
         <span>
           You have completed {this.state.blockNum} out of{" "}
@@ -845,7 +888,9 @@ class PerTask extends React.Component {
     );
 
 
-    let instruct_text5 = (
+    let instruct_text6 = (
+
+
       <div>
         <span>
           You have completed {this.state.blockNum} out of{" "}
@@ -856,14 +901,23 @@ class PerTask extends React.Component {
           <br />
           <br />
           <center>
+          <img src={this.state.astronaut_purple} width={180} alt="astronaut 2" />
+          </center>
+          <br/>
+          <br/>
+          <br/>
+          <center>
             Press the [<strong>SPACEBAR</strong>] when you are ready to
             continue.
           </center>
         </span>
+        <span className={style.astro}>
+          <img src={this.state.astronaut} width={280} alt="astronauts" />
+          </span>
       </div>
     );
 
-    let instruct_text6 = (
+    let instruct_text7 = (
       <div>
         <span>
           Amazing!
@@ -901,7 +955,7 @@ class PerTask extends React.Component {
       </div>
     );
 
-    let instruct_text7 = (
+    let instruct_text8 = (
       <div>
         <span>
           Whew! Our spaceship power is now back to a good level, thanks to the
@@ -930,7 +984,8 @@ class PerTask extends React.Component {
         return <div>{instruct_text6}</div>;
       case 7:
         return <div>{instruct_text7}</div>;
-      default:
+      case 8:
+        return <div>{instruct_text8}</div>;
     }
   }
 
@@ -1052,7 +1107,11 @@ class PerTask extends React.Component {
       instructScreen: true,
       taskScreen: false,
       quizScreen: false,
+<<<<<<< Updated upstream
       instructNum: 7, //5
+=======
+      instructNum: 7, //6
+>>>>>>> Stashed changes
       taskSection: null,
     });
   }
@@ -1277,6 +1336,10 @@ class PerTask extends React.Component {
 
   }
 
+  renderGlobalBlame() {
+
+  }
+
   renderTaskSave() {
     document.removeEventListener("keyup", this._handleBlameKey); //_handleConfRespKey
 
@@ -1430,7 +1493,7 @@ class PerTask extends React.Component {
         instructScreen: true,
         taskScreen: false,
         quizScreen: false,
-        instructNum: 6, //4
+        instructNum: 8, //7
         taskSection: null,
       });
     }
@@ -1488,7 +1551,7 @@ renderBreakSave() {
     
     this.setState({
       instructScreen: true,
-      instructNum: 4, //3
+      instructNum: 5, //4
       taskScreen: false,
       taskSection: "break",
     });
@@ -1499,6 +1562,8 @@ renderBreakSave() {
   redirectToNextTask() {
     document.removeEventListener("keyup", this._handleInstructKey);
     document.removeEventListener("keyup", this._handleBeginKey);
+    document.removeEventListener("keyup", this._handleBlameKey );
+
 
     var condition = this.state.condition;
     var perCorrectPer = this.state.correctPer;
@@ -1510,7 +1575,7 @@ renderBreakSave() {
       condUrl = "/MemPreTut?PROLIFIC_PID=";
     } else {
       //Sent to insight page
-      condUrl = "/Bonus?PROLIFIC_PID=";
+      condUrl = "/End?PROLIFIC_PID=";
     }
 
     this.props.navigate(condUrl + this.state.prolificID, {
@@ -1669,8 +1734,10 @@ renderBreakSave() {
            <strong> + 1 Point </strong>
             <br/>
             <br/>
-            <strong> Total Points: {points}       </strong>
-              </center>
+            <span className={style.points} >
+              <strong> Total Points: {points}       </strong>
+              </span>
+            </center>
               <br />
               <br />
               <br />
@@ -1699,8 +1766,9 @@ renderBreakSave() {
             <strong> - 1 Point </strong>
             <br/>
             <br/>
-            <strong> Total Points: {points}
-            </strong>
+            <span className={style.points}>
+              <strong> Total Points: {points} </strong>
+            </span>
             </center>
               <br />
               <br />
@@ -1728,8 +1796,9 @@ renderBreakSave() {
               One of you has chosen the wrong battery card. 
               <br/>
             <br/>
-            <strong> Total Points: {points}
-            </strong>
+            <span className={style.points}>
+              <strong> Total Points: {points}   </strong>
+            </span>
             <br/>
             <br/>
               Rate how likely it is that you or the other player chose wrongly.  
