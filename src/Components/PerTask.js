@@ -1435,6 +1435,50 @@ class PerTask extends React.Component {
   }
 
 
+renderBreakSave() {
+    document.removeEventListener("keyup", this._handleGlobalBlameKey);
+    var prolificID = this.state.prolificID;
+    var task = "perception";
+
+    let saveString = {
+      prolificID: this.state.prolificID,
+      condition: this.state.condition,
+      task: task,
+      userID: this.state.userID,
+      date: this.state.date,
+      orderValue: this.state.orderValue,
+      startTime: this.state.startTime,
+      section: this.state.section,
+      sectionTime: this.state.sectionTime,
+      blockNum: this.state.blockNum,
+      //  confTimeInitial: this.state.confTimeInitial,
+      //  confTime: this.state.confTime,
+      blameInitial: this.state.blameInitial,
+      blameLevel: this.state.blameLevel,
+    };
+
+    try {
+      fetch(`${DATABASE_URL}/pre_post_conf/` + prolificID, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(saveString),
+      });
+    } catch (e) {
+      console.log("Cant post?");
+    }
+      // begin the task
+      //  console.log("BEGIN");
+      setTimeout(
+        function () {
+          this.taskBegin();
+        }.bind(this),
+        10
+      ); 
+  }
+
 
   restBlock() {
     this.setState({
