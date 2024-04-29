@@ -401,12 +401,9 @@ class PerTask extends React.Component {
     if (
       whichButton === 3 &&
       this.state.instructScreen === true &&
-<<<<<<< Updated upstream
       this.state.blameLevel !== null &&
-      (this.state.curInstructNum === 4 || this.state.curInstructNum === 6)
-=======
+      (this.state.curInstructNum === 5 || this.state.curInstructNum === 7)
       this.state.blameLevel !== null
->>>>>>> Stashed changes
     ) {
       var blameTime = timePressed - this.state.blameTimeInitial;
 
@@ -422,10 +419,7 @@ class PerTask extends React.Component {
       );
     }
   }
-<<<<<<< Updated upstream
   
-=======
->>>>>>> Stashed changes
 
   handleResp(keyPressed, timePressed) {
     //Check first whether it is a valid press
@@ -1550,6 +1544,8 @@ renderBreakSave() {
       blameInitial: this.state.blameInitial,
       blameLevel: this.state.blameLevel,
     };
+
+    console.log(saveString);
 
     try {
       fetch(`${DATABASE_URL}/global_blame/` + prolificID, {
