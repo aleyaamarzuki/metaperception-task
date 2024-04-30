@@ -208,6 +208,7 @@ class PerTask extends React.Component {
     this.handleResp = this.handleResp.bind(this);
     this.handleConfResp = this.handleConfResp.bind(this);
     this.handleBlame = this.handleBlame.bind(this);
+    this.handleGlobalBlame = this.handleGlobalBlame(this);
     this.instructText = this.instructText.bind(this);
     this.quizText = this.quizText.bind(this);
     //////////////////////////////////////////////////////////////////////////////////////////////
