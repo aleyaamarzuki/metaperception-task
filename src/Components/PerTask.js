@@ -208,7 +208,6 @@ class PerTask extends React.Component {
     this.handleResp = this.handleResp.bind(this);
     this.handleConfResp = this.handleConfResp.bind(this);
     this.handleBlame = this.handleBlame.bind(this);
-    this.handleGlobalBlame = this.handleGlobalBlame.bind(this);
     this.instructText = this.instructText.bind(this);
     this.quizText = this.quizText.bind(this);
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -317,7 +316,6 @@ class PerTask extends React.Component {
     } else if (whichButton === 3 && curInstructNum === 5) { //4
       // continue after a block break
 
- 
       this.setState({
         instructNum: 6, //5
         instructScreen: true,
@@ -325,14 +323,13 @@ class PerTask extends React.Component {
         taskSection: "break",
       });
 
+      
       setTimeout(
         function () {
           this.renderGlobalBlame();
         }.bind(this),
         10
       );
-
-
 
     } else if (whichButton === 3 && curInstructNum === 6) { //5
       // continue after a block break
@@ -401,9 +398,7 @@ class PerTask extends React.Component {
     if (
       whichButton === 3 &&
       this.state.instructScreen === true &&
-      this.state.blameLevel !== null &&
-      (this.state.curInstructNum === 5 || this.state.curInstructNum === 7)
-      this.state.blameLevel !== null
+      this.state.blameLevel !== null 
     ) {
       var blameTime = timePressed - this.state.blameTimeInitial;
 
@@ -419,7 +414,6 @@ class PerTask extends React.Component {
       );
     }
   }
-  
 
   handleResp(keyPressed, timePressed) {
     //Check first whether it is a valid press
@@ -546,7 +540,7 @@ class PerTask extends React.Component {
 
       setTimeout(
         function () {
-          this.renderGlobalBlame();
+          this.renderBlame();
         }.bind(this),
         0
       );
@@ -633,10 +627,6 @@ class PerTask extends React.Component {
     }
   };
 
-<<<<<<< Updated upstream
-    // handle key keyPressed
-=======
->>>>>>> Stashed changes
   _handleGlobalBlameKey = (event) => {
     var keyPressed;
     var timePressed;
@@ -651,10 +641,6 @@ class PerTask extends React.Component {
       default:
     }
   };
-<<<<<<< Updated upstream
-  
-=======
->>>>>>> Stashed changes
 
   // handle key keyPressed
   _handleRespKey = (event) => {
@@ -1085,6 +1071,29 @@ class PerTask extends React.Component {
     });
   }
 
+
+  renderGlobalBlame() {
+    document.addEventListener("keyup", this._handleGlobalBlameKey);
+
+
+    //randomise the pre-post initial conf value - this has changed to a scale of 0 to 150
+    var initialValue = utils.randomInt(60, 90);
+    var blameTimeInitial = Math.round(performance.now());
+
+    this.setState({
+      blameInitial: initialValue,
+      blameLevel: null,
+      blameTimeInitial: blameTimeInitial,
+      blameTime: null,
+      //  confMove: null,
+      quizScreen: false,
+      instructScreen: true,
+      taskScreen: false,
+      taskSection: "rating",
+    });
+
+  }
+
   taskBegin() {
     // remove access to left/right/space keys for the instructions
     document.removeEventListener("keyup", this._handleInstructKey);
@@ -1103,11 +1112,7 @@ class PerTask extends React.Component {
       instructScreen: true,
       taskScreen: false,
       quizScreen: false,
-<<<<<<< Updated upstream
-      instructNum: 7, //5
-=======
       instructNum: 7, //6
->>>>>>> Stashed changes
       taskSection: null,
     });
   }
@@ -1309,7 +1314,7 @@ class PerTask extends React.Component {
     // it will deploy the next trial with spacebar keypress
   }
 
-  renderGlobalBlame() {
+  renderBlame() {
     document.addEventListener("keyup", this._handleBlameKey);
 
     var initialValue = utils.randomInt(40, 80);
@@ -1330,38 +1335,9 @@ class PerTask extends React.Component {
         blameTime: blameTime,
       });
 
-      setTimeout(
-        function () {
-          this.handleBegin();
-        }.bind(this),
-        10
-      );
-
   }
 
-  renderGlobalBlame() {
-    document.addEventListener("keyup", this._handleGlobalBlameKey);
-
-
-    //randomise the pre-post initial conf value - this has changed to a scale of 0 to 150
-    var initialValue = utils.randomInt(60, 90);
-    var blameTimeInitial = Math.round(performance.now());
-
-    this.setState({
-      blameInitial: initialValue,
-      blameLevel: null,
-      blameTimeInitial: blameTimeInitial,
-      blameTime: null,
-      //  confMove: null,
-      quizScreen: false,
-      instructScreen: true,
-      taskScreen: false,
-      taskSection: "rating",
-    });
-
-
-
-  }
+  
 
   renderTaskSave() {
     document.removeEventListener("keyup", this._handleBlameKey); //_handleConfRespKey
@@ -1488,6 +1464,8 @@ class PerTask extends React.Component {
       confLevel: this.state.confLevel,
     };
 
+    console.log(saveString);
+
     try {
       fetch(`${DATABASE_URL}/pre_post_conf/` + prolificID, {
         method: "POST",
@@ -1524,56 +1502,102 @@ class PerTask extends React.Component {
 
 
 renderBreakSave() {
-    document.removeEventListener("keyup", this._handleGlobalBlameKey);
-    var prolificID = this.state.prolificID;
-    var task = "perception";
+  document.removeEventListener("keyup", this._handleGlobalBlameKey);
+  var prolificID = this.state.prolificID;
+  var task = "perception";
 
-    let saveString = {
-      prolificID: this.state.prolificID,
-      condition: this.state.condition,
-      task: task,
-      userID: this.state.userID,
-      date: this.state.date,
-     // orderValue: this.state.orderValue,
-      startTime: this.state.startTime,
-      section: this.state.section,
-      sectionTime: this.state.sectionTime,
-      blockNum: this.state.blockNum,
-      //  confTimeInitial: this.state.confTimeInitial,
-      //  confTime: this.state.confTime,
-      blameInitial: this.state.blameInitial,
-      blameLevel: this.state.blameLevel,
-    };
+  let saveString = {
+    prolificID: this.state.prolificID,
+    condition: this.state.condition,
+    task: task,
+    userID: this.state.userID,
+    date: this.state.date,
+   // orderValue: this.state.orderValue,
+    startTime: this.state.startTime,
+    section: this.state.section,
+    sectionTime: this.state.sectionTime,
+    blockNum: this.state.blockNum,
+    //  confTimeInitial: this.state.confTimeInitial,
+    //  confTime: this.state.confTime,
+    blameInitial: this.state.blameInitial,
+    blameLevel: this.state.blameLevel,
+  };
 
-    console.log(saveString);
+  console.log(saveString);
 
-    try {
-      fetch(`${DATABASE_URL}/global_blame/` + prolificID, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(saveString),
-      });
-    } catch (e) {
-      console.log("Cant post?");
-    }
-      // begin the task
-      //  console.log("BEGIN");
-      setTimeout(
-        function () {
-          this.taskBegin();
-        }.bind(this),
-        10
-      ); 
+  try {
+    fetch(`${DATABASE_URL}/global_blame/` + prolificID, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(saveString),
+    });
+  } catch (e) {
+    console.log("Cant post?");
   }
 
 
-  restBlock() {
-  
-  document.addEventListener("keyup", this._handleGlobalBlameKey);
     
+    if (this.state.trialNumInBlock === this.state.trialNumPerBlock) {
+      //and not the last trial, because that will be sent to trialReset to end the task
+      //  console.log("TIME FOR A BREAK");
+      if (this.state.trialNum !== this.state.trialNumTotal) {
+        //      console.log("REST TIME");
+        setTimeout(
+          function () {
+            this.restBlock();
+          }.bind(this),
+          10
+        );
+      } else if (this.state.trialNum === this.state.trialNumTotal) {
+        // have reached the end of the task
+        //    console.log("END TASK");
+        setTimeout(
+          function () {
+            this.taskEnd();
+          }.bind(this),
+          10
+        );
+      }
+    } else if (this.state.trialNumInBlock !== this.state.trialNumPerBlock) {
+      //  console.log("CONTINUE TIME");
+      setTimeout(
+        function () {
+          this.trialReset();
+        }.bind(this),
+        10
+      );
+    } else {
+      console.log("ERROR I HAVENT ACCOUNTED FOR");
+    }
+    
+
+    /*
+    if (this.state.blockNum === 1 || this.state.blockNum === 2) {
+      setTimeout(
+        function () {
+          this.restBlock();
+        }.bind(this),
+        10
+      );
+
+    } else if (this.state.blockNum === 3) {
+
+      setTimeout(
+        function () {
+          this.taskEnd();
+        }.bind(this),
+        10
+      );
+    }*/
+}
+
+
+
+
+  restBlock() {
     this.setState({
       instructScreen: true,
       instructNum: 5, //4
@@ -1582,7 +1606,6 @@ renderBreakSave() {
     });
 
   }
-
 
   redirectToNextTask() {
     document.removeEventListener("keyup", this._handleInstructKey);
