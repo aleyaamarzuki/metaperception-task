@@ -557,7 +557,7 @@ class PerTask extends React.Component {
             this.state.stimTime +
             this.state.respTime +
             this.state.respFbTime +
-            this.state.confTime,
+            this.state.blameTime,
         ];
 
         this.setState({
