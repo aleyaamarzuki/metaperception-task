@@ -561,11 +561,11 @@ class PerTut extends React.Component {
       );
     }
 
-    /*
+    
     if (this.state.condition === 1) {
       taskCond = (
         <span>
-          Welcome to spaceship!
+          Welcome to the spaceship!
           <br /> <br />
           The ship has been damaged with an asteriod hit and we are glad you are
           here to help.
@@ -577,11 +577,16 @@ class PerTut extends React.Component {
     } else {
       taskCond = (
         <span>
-          After we settled the animals, we attempted to restart the spaceship.
-          Unforunately, we have found that it is running low on power!
+          Welcome to the spaceship!
+          <br /> <br />
+          The ship has been damaged with an asteriod hit and we are glad you are
+          here to help.
+          <br />
+          <br />
+          We have found that the spaceship is running low on power.
         </span>
       );
-    }*/
+    }
 
     let instruct_text1 = (
       <div>
@@ -606,8 +611,9 @@ class PerTut extends React.Component {
         </span>
       </div>
     );
-
-    let instruct_text2 = (
+  
+  
+  let instruct_text2 = (
       <div>
         <span>A battery card looks like this:</span>
         <br />
