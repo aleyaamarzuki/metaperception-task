@@ -328,6 +328,7 @@ class PerTask extends React.Component {
       setTimeout(
         function () {
           this.renderGlobalBlame();
+          this.renderMotivation();
         }.bind(this),
         10
       );
