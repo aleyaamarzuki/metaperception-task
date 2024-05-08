@@ -328,17 +328,10 @@ class PerTask extends React.Component {
       setTimeout(
         function () {
           this.renderGlobalBlame();
-        }.bind(this),
-        10
-      );
-
-      setTimeout(
-        function () {
           this.renderMotivation();
         }.bind(this),
         10
       );
-
 
     } else if (whichButton === 3 && curInstructNum === 6) { //5
       // continue after a block break
