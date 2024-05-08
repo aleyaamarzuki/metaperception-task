@@ -805,9 +805,13 @@ class PerTut extends React.Component {
         <center>
         You will earn one point per correct battery sorted, but only if the other player also chose correctly (+1). 
         <br /> 
+        <br /> 
         If <strong>either of you chose wrongly</strong>, <strong>no</strong> points will be earned (0). 
         <br /> 
+        <br /> 
         If you <strong>both</strong> chose wrongly, there will be a <strong>deduction</strong> of one point (-1).
+        <br /> 
+        <br /> 
         <br /> 
         <br /> 
         You and the other players are eligible for a bonus of up to £x each depending on the number of points earned. Try and earn as many points as possible!
@@ -843,9 +847,14 @@ class PerTut extends React.Component {
         <center>
         If you are very sure <strong>the other player is wrong</strong> (and you chose correctly), you would select the far right of the scale (100%).
         <br/>
+        <br/>
         If you are very sure <strong>the other player is correct</strong> (and you chose wrongly), you would select the far left of the scale (0%).
         <br/>
+        <br/>
         If you are very unsure who got it wrong, you would select a rating (around 50%) between the two ends.
+        <br/>
+        <br/>
+        <br/>
         <br/>
         </center>
         The other players will <strong>NOT</strong> be informed of these ratings.
