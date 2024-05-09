@@ -151,7 +151,7 @@ class PerTask extends React.Component {
       confInitial: null,
       blame: null,
       motivationLevel: null,
-      MotivationInitial: utils.randomInt(40, 60),
+      MotivationInitial: null,
       //    confMove: null, //can only move to next trial if conf was toggled
       correct: null,
       correctMat: [], //put correct in vector, to cal perf %
@@ -413,8 +413,8 @@ class PerTask extends React.Component {
     var whichButton = keyPressed;
     if (
       whichButton === 3 &&
-      this.state.globalBlameLevel !== null 
-      // &&      this.state.motivationLevel !== null
+      this.state.globalBlameLevel !== null &&      
+      this.state.motivationLevel !== null
     ) {
       var globalBlameTime = timePressed - this.state.blameTimeInitial;
 
@@ -731,7 +731,7 @@ class PerTask extends React.Component {
   }
 
   handleCallbackMotivation(callBackValue) {
-    this.setState({ MotivationLevel: callBackValue });
+    this.setState({ motivationLevel: callBackValue });
   }
 
   // To ask them for the valence rating of the noises
@@ -1107,6 +1107,7 @@ class PerTask extends React.Component {
 
     this.setState({
       blameInitial: initialValue,
+      MotivationInitial: initialValue,
       motivationLevel: null,
       globalBlameLevel: null,
       blameTimeInitial: blameTimeInitial,
@@ -1547,7 +1548,8 @@ renderBreakSave() {
     //  confTime: this.state.confTime,
     blameInitial: this.state.blameInitial,
     globalBlameLevel: this.state.globalBlameLevel,
-    //motivationLevel: this.state.motivationLevel,
+    MotivationInitial: this.state.MotivationInitial,
+    motivationLevel: this.state.motivationLevel
   };
 
   console.log(saveString);
