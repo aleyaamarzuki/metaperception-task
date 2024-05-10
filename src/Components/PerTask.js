@@ -413,6 +413,7 @@ class PerTask extends React.Component {
     var whichButton = keyPressed;
     if (
       whichButton === 3 &&
+      this.state.instructScreen === true &&
       this.state.globalBlameLevel !== null &&      
       this.state.motivationLevel !== null
     ) {
