@@ -1550,7 +1550,7 @@ renderBreakSave() {
     blameInitial: this.state.blameInitial,
     globalBlameLevel: this.state.globalBlameLevel,
     MotivationInitial: this.state.MotivationInitial,
-    motivationLevel: this.state.motivationLevel
+    motivationLevel: this.state.motivationLevel,
   };
 
   console.log(saveString);
