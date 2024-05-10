@@ -141,8 +141,6 @@ class PerTask extends React.Component {
       respFbTime: 0,
       blameTime: 0, 
       blameTimeInitial: 0,
-      motivationTimeInitial: 0,
-      motivationTime: 0,
       choice: null,
       confLevel: null,
       blameLevel: null,
@@ -337,13 +335,6 @@ class PerTask extends React.Component {
         10
       );
 
-      setTimeout(
-        function () {
-          this.renderMotivation();
-        }.bind(this),
-        10
-      );
-
     } else if (whichButton === 3 && curInstructNum === 6) { //5
       // continue after a block break
       var blockNum = this.state.blockNum + 1;
@@ -375,13 +366,6 @@ class PerTask extends React.Component {
       setTimeout(
         function() {
           this.renderGlobalBlame();
-          }.bind(this),
-          10
-      );
-
-      setTimeout(
-        function() {
-          this.renderMotivation();
           }.bind(this),
           10
       );
@@ -430,7 +414,8 @@ class PerTask extends React.Component {
     if (
       whichButton === 3 &&
       this.state.instructScreen === true &&
-      this.state.globalBlameLevel !== null
+      this.state.globalBlameLevel !== null &&      
+      this.state.motivationLevel !== null
     ) {
       var globalBlameTime = timePressed - this.state.blameTimeInitial;
 
@@ -445,30 +430,7 @@ class PerTask extends React.Component {
         0
       );
     }
-  } 
-
-  handleMotivation(keyPressed, timePressed) {
-    var whichButton = keyPressed;
-    if (
-      whichButton === 3 &&
-      this.state.instructScreen === true &&     
-      this.state.motivationLevel !== null
-    ) {
-      var motivationTime = timePressed - this.state.motivationTimeInitial;
-
-      this.setState({
-        motivationTime: motivationTime,
-      });
-
-      setTimeout(
-        function () {
-          this.renderBreakSave();
-        }.bind(this),
-        0
-      );
-    }
-  } 
-
+  }  
 
   handleResp(keyPressed, timePressed) {
     //Check first whether it is a valid press
@@ -692,21 +654,6 @@ class PerTask extends React.Component {
         keyPressed = 3;
         timePressed = Math.round(performance.now());
         this.handleGlobalBlame(keyPressed, timePressed);
-        break;
-      default:
-    }
-  };
-
-  _handleMotivationKey = (event) => {
-    var keyPressed;
-    var timePressed;
-
-    switch (event.keyCode) {
-      case 32:
-        //    this is spacebar
-        keyPressed = 3;
-        timePressed = Math.round(performance.now());
-        this.handleMotivation(keyPressed, timePressed);
         break;
       default:
     }
@@ -1124,7 +1071,6 @@ class PerTask extends React.Component {
     document.removeEventListener("keyup", this._handleInstructKey);
     document.removeEventListener("keyup", this._handleBeginKey);
     document.removeEventListener("keyup", this._handleGlobalBlameKey);
-    document.removeEventListener("keyup", this._handleMotivationKey);
     document.addEventListener("keyup", this._handleGlobalConfKey);
 
     //randomise the pre-post initial conf value - this has changed to a scale of 0 to 150
@@ -1168,32 +1114,6 @@ class PerTask extends React.Component {
       blameTimeInitial: blameTimeInitial,
       blameTime: null,
       globalBlameTime: null,
-      //  confMove: null,
-      quizScreen: false,
-      instructScreen: true,
-      taskScreen: false,
-    });
-
-  }
-
-  renderMotivation() {
-    document.removeEventListener("keyup", this._handleGlobalConfKey);
-    document.removeEventListener("keyup", this.handleResp);
-    document.removeEventListener("keyup", this.handleConfResp);
-    document.removeEventListener("keyup", this._handleBlameKey);
-    document.removeEventListener("keyup", this._handleGlobalBlameKey);
-    document.addEventListener("keyup", this._handleMotivationKey);
-
-
-    //randomise the pre-post initial conf value - this has changed to a scale of 0 to 150
-    var initialValue = utils.randomInt(60, 90);
-    var motivationTimeInitial = Math.round(performance.now());
-
-    this.setState({
-      MotivationInitial: initialValue,
-      motivationLevel: null,
-      motivationTimeInitial: motivationTimeInitial,
-      motivationTime: null,
       //  confMove: null,
       quizScreen: false,
       instructScreen: true,
@@ -1611,7 +1531,6 @@ class PerTask extends React.Component {
 
 renderBreakSave() {
   document.removeEventListener("keyup", this._handleGlobalBlameKey);
-  document.removeEventListener("keyup", this._handleMotivationKey);
   var prolificID = this.state.prolificID;
   var task = "perception";
 
