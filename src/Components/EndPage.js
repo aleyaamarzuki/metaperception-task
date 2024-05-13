@@ -125,7 +125,7 @@ class EndPage extends React.Component {
           <br />
           <br />
           In the two tasks, we were interested in how you evaluate your
-          decisions in memory and perception.
+          perceptual decision-making.
           <br /> <br />
           Previous work have linked differences in behaviour to psychiatric
           disorders, which we are aiming to understand better.
