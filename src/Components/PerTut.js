@@ -765,8 +765,8 @@ class PerTut extends React.Component {
       <div>
         <span>
         As this is a very sensitive operation, we want to make sure the chosen battery cards have a high charge as often as possible. For this, we need more people making decisions! 
-        We will be pairing you up with other players (3 total) one at a time who have sorted the batteries earlier. 
-        You will see the same battery cards that the other players have seen. After you choose a card, you will be informed:
+        We will be pairing you up with other players (3 total) <strong> one at a time </strong> who have sorted the batteries earlier. 
+        Each time, you will see the same battery cards that another player has seen. After you choose a card, you will be informed:
         <br/>
         <br /> 
         <br /> 
