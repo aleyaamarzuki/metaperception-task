@@ -865,6 +865,7 @@ class PerTut extends React.Component {
         <br/>
         <br/>
         The other players will <strong>NOT</strong> be informed of these ratings.
+        </center>
         <br />
         <br />
         <center>
