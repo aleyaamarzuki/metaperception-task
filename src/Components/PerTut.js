@@ -48,7 +48,7 @@ class PerTut extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    var trialNumTotal = 25
+    var trialNumTotal = 2//25
 
     //the stim position
     var pracStimPos = Array(Math.round(trialNumTotal / 2))
@@ -830,8 +830,6 @@ class PerTut extends React.Component {
         In cases where one player chose wrongly, you will not be told who it is. 
         Instead, you will have to indicate the extent to which you think you or the other player chose wrongly.
         After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that you or the other player is wrong</strong>. 
-        <br/>
-        <br/>
         <br/>
         <br/>
         <center>
