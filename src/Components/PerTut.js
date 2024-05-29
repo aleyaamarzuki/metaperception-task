@@ -862,17 +862,8 @@ class PerTut extends React.Component {
         If you are very unsure who got it wrong, you would select a rating (around 50%) between the two ends.
         <br/>
         <br/>
-        <br />
-        <br />
-        <center>
-          <BlameSlider.BlameSlider
-          callBackValue={this.handleCallbackBlame.bind(this)} //callBackValue={this.handleCallbackBlame.bind(this)}
-          initialValue={50}
-          />
-        </center>
         <br/>
         <br/>
-        </center>
         The other players will <strong>NOT</strong> be informed of these ratings.
         <br />
         <br />
