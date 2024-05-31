@@ -892,7 +892,7 @@ class PerTask extends React.Component {
 
 
 let astronautImage;
-if (this.state.blockNum === 3) {
+if (this.state.blockNum === 1) {
   astronautImage = this.state.astronaut_purple;
 } else if (this.state.blockNum === 2) {
   astronautImage = this.state.astronaut;
