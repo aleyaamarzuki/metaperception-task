@@ -17,6 +17,7 @@ import * as ConfSliderGlobal from "./DrawConfSliderGlobal.js";
 import astronaut from "./img/astronaut3.png";
 import astronaut_green from "./img/astronaut3_green.png";
 import astronaut_purple from "./img/astronaut3_purple.png"; 
+import astronaut_blue from "./img/astronaut3_blue.png"; 
 
 import { DATABASE_URL } from "./config";
 
@@ -111,6 +112,7 @@ class PerTask extends React.Component {
       astronaut: astronaut,
       astronaut_green: astronaut_green,
       astronaut_purple: astronaut_purple,
+      astronaut_blue: astronaut_blue,
 
       // trial timings in ms
       fixTimeLag: 1000, //1000
@@ -891,34 +893,39 @@ class PerTask extends React.Component {
     );
 
 
-    let instruct_text6 = (
+let astronautImage;
+if (this.state.blockNum === 2) {
+  astronautImage = this.state.astronaut_purple;
+} else if (this.state.blockNum === 3) {
+  astronautImage = this.state.astronaut_blue;
+}
 
-
-      <div>
-        <span>
-          You have completed {this.state.blockNum} out of{" "}
-          {this.state.blockNumTotal} blocks!
-          <br />
-          <br />
-          You can now pause for a break. In the next block you will be paired with a <strong>different</strong> player.
-          <br />
-          <br />
-          <center>
-          <img src={this.state.astronaut_purple} width={180} alt="astronaut 2" />
-          </center>
-          <br/>
-          <br/>
-          <br/>
-          <center>
-            Press the [<strong>SPACEBAR</strong>] when you are ready to
-            continue.
-          </center>
-        </span>
-        <span className={style.astro}>
-          <img src={this.state.astronaut} width={280} alt="astronauts" />
-          </span>
-      </div>
-    );
+let instruct_text6 = (
+  <div>
+    <span>
+      You have completed {this.state.blockNum} out of{" "}
+      {this.state.blockNumTotal} blocks!
+      <br />
+      <br />
+      You can now pause for a break. In the next block you will be paired with a <strong>different</strong> player.
+      <br />
+      <br />
+      <center>
+        <img src={astronautImage} width={180} alt="astronaut" />
+      </center>
+      <br/>
+      <br/>
+      <br/>
+      <center>
+        Press the [<strong>SPACEBAR</strong>] when you are ready to
+        continue.
+      </center>
+    </span>
+    <span className={style.astro}>
+      <img src={this.state.astronaut} width={280} alt="astronauts" />
+    </span>
+  </div>
+);
 
     let instruct_text7 = (
       <div>
