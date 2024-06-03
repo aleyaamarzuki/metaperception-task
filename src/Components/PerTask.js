@@ -262,46 +262,39 @@ class PerTask extends React.Component {
   }
 
   handleBegin(keyPressed) {
+    // start of change to code to make probabilities constant across participants 
     var curInstructNum = this.state.instructNum;
-    var whichButton = keyPressed;
+      var whichButton = keyPressed;
 
-    if (whichButton === 3 && curInstructNum === 4) {
-      const results1 = [];
-      const results2 = [];
-      const results3 = [];
+  if (whichButton === 3 && curInstructNum === 4) {
+    const results1 = [];
+    const results2 = [];
+    const results3 = [];
+    
+    const trialNumPerBlock = this.state.trialNumPerBlock;
 
-
-    for (let i = 0; i < this.state.trialNumPerBlock; i++) {
-        
-        const randomValue = Math.random();
-
-        if (randomValue < this.state.PlayerProbsOrder[0]) {
-            results1.push(1);
-        } else {
-            results1.push(0);
-        }
-    }
-    for (let i = 0; i < this.state.trialNumPerBlock; i++) {
-        
-      const randomValue = Math.random();
-
-      if (randomValue < this.state.PlayerProbsOrder[1]) {
-          results2.push(1);
-      } else {
-          results2.push(0);
+    function generateResults(prob, numTrials) {
+      const numCorrect = Math.round(prob * numTrials);
+      const results = new Array(numTrials).fill(0);
+      
+      // Fill with correct responses
+      for (let i = 0; i < numCorrect; i++) {
+        results[i] = 1;
       }
-  }
-  for (let i = 0; i < this.state.trialNumPerBlock; i++) {
-        
-    const randomValue = Math.random();
-
-    if (randomValue < this.state.PlayerProbsOrder[2]) {
-        results3.push(1);
-    } else {
-        results3.push(0);
+      
+      // Shuffle the array to randomize the order of correct responses
+      for (let i = results.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [results[i], results[j]] = [results[j], results[i]];
+      }
+      
+      return results;
     }
-}
 
+    results1.push(...generateResults(this.state.PlayerProbsOrder[0], trialNumPerBlock));
+    results2.push(...generateResults(this.state.PlayerProbsOrder[1], trialNumPerBlock));
+    results3.push(...generateResults(this.state.PlayerProbsOrder[2], trialNumPerBlock));
+    // end of change to code
       this.setState({
         results1: results1,
         results2: results2,
