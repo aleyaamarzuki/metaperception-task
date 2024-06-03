@@ -75,7 +75,7 @@ class PerTask extends React.Component {
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
 
-    var trialNumTotal = 150;
+    var trialNumTotal = 15;
     var blockNumTotal = 3; //3
     var trialNumPerBlock = Math.round(trialNumTotal / blockNumTotal);
 
@@ -295,12 +295,17 @@ class PerTask extends React.Component {
     results2.push(...generateResults(this.state.PlayerProbsOrder[1], trialNumPerBlock));
     results3.push(...generateResults(this.state.PlayerProbsOrder[2], trialNumPerBlock));
     // end of change to code
-      this.setState({
+
+    // changed this to fix looping during Block 1 global rating
+    this.setState({
         results1: results1,
         results2: results2,
         results3: results3,
-        quizState: "pre",
-      });
+        instructScreen: true,
+        taskScreen: false,
+        quizScreen: false,
+        taskSection: "break",
+    });
 
       setTimeout(
         function () {
