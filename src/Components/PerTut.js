@@ -1138,7 +1138,7 @@ class PerTut extends React.Component {
 
     let quiz_text5 = (
       <div>
-        <strong>Q{this.state.quizNum}:</strong> <strong>Both</strong> you and the other player both chose the <strong>correct</strong> battery card. What is the outcome of this?
+        <strong>Q{this.state.quizNum}:</strong> <strong>Both</strong> you and the other player chose the <strong>correct</strong> battery card. What is the outcome of this?
         <br/>
         <br/>
         [1] No extra points are given.
