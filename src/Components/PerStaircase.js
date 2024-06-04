@@ -9,46 +9,6 @@ function checkReversal(dir) {
   else return false;
 }
 
-var curInstructNum = this.state.instructNum;
-    var whichButton = keyPressed;
-
-    if (whichButton === 3 && curInstructNum === 4) {
-      const results1 = [];
-      const results2 = [];
-      const results3 = [];
-
-
-    for (let i = 0; i < this.state.trialNumPerBlock; i++) {
-        
-        const randomValue = Math.random();
-
-        if (randomValue < this.state.PlayerProbsOrder[0]) {
-            results1.push(1);
-        } else {
-            results1.push(0);
-        }
-    }
-    for (let i = 0; i < this.state.trialNumPerBlock; i++) {
-        
-      const randomValue = Math.random();
-
-      if (randomValue < this.state.PlayerProbsOrder[1]) {
-          results2.push(1);
-      } else {
-          results2.push(0);
-      }
-  }
-  for (let i = 0; i < this.state.trialNumPerBlock; i++) {
-        
-    const randomValue = Math.random();
-
-    if (randomValue < this.state.PlayerProbsOrder[2]) {
-        results3.push(1);
-    } else {
-        results3.push(0);
-    }
-}
-
 export function staircase(dotDiff, prevTrialPerf, dir, trialNum) {
   var back1 = prevTrialPerf[prevTrialPerf.length - 1]; // Last trial
   var back2 = prevTrialPerf[prevTrialPerf.length - 2]; // Two trials ago
