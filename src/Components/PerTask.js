@@ -75,7 +75,7 @@ class PerTask extends React.Component {
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
 
-    var trialNumTotal = 150;
+    var trialNumTotal = 15;
     var blockNumTotal = 3; //3
     var trialNumPerBlock = Math.round(trialNumTotal / blockNumTotal);
 
@@ -1659,12 +1659,23 @@ restBreak() {
 
 
   restBlock() {
+    
     this.setState({
+      instructNum: 5,
       instructScreen: true,
-      instructNum: 5, //4
+      taskScreen: false,
+      quizScreen: false,
       taskScreen: false,
       taskSection: "break",
     });
+
+    
+    setTimeout(
+      function () {
+        this.renderGlobalBlame();
+      }.bind(this),
+      10
+    );
 
   }
 
