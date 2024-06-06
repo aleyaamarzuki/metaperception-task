@@ -18,11 +18,11 @@ export function staircase(dotDiff, prevTrialPerf, dir, trialNum) {
     // If the last trial was correct
     if (back2) {
       // AND two trials ago were correct
-      if (trialNum < 7) dotDiff -= 0.8;
+      if (trialNum < 7) dotDiff -= 0.4;
       // for 0==trial and for the second half of the practice
-      else if (trialNum > 6 && trialNum < 12) dotDiff -= 0.4;
+      else if (trialNum > 6 && trialNum < 12) dotDiff -= 0.2;
       // for the first 5 trials of the practice
-      else if (trialNum > 11) dotDiff -= 0.2;
+      else if (trialNum > 11) dotDiff -= 0.1;
       // for next 5 trials of the practice
 
       // changes the last trial to incorrect
@@ -37,11 +37,11 @@ export function staircase(dotDiff, prevTrialPerf, dir, trialNum) {
     // If the last trial was correct and two trials ago were wrong, do nothing.
   } // If the last trial was wrong
   else {
-    if (trialNum < 7) dotDiff += 0.8;
+    if (trialNum < 7) dotDiff += 0.4;
     // for 0==trial and for the second half of the practice
-    else if (trialNum > 6 && trialNum < 12) dotDiff += 0.4;
+    else if (trialNum > 6 && trialNum < 12) dotDiff += 0.2;
     // for the first 5 trials of the practice
-    else if (trialNum > 11) dotDiff += 0.2;
+    else if (trialNum > 11) dotDiff += 0.1;
     // for next 5 trials of the practice
 
     dir[0] = dir[1]; // Set the direction two trials ago to the direction one trial ago
