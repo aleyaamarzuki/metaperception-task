@@ -55,7 +55,7 @@ export const json = {
           type: "html",
           name: "info",
           html:
-            "<p>You will play an online computer task, which will last around approximately <strong>1 hour</strong>. <br/><br/>You will also be asked some questions about yourself, your feelings, background, attitudes and behaviour in your everyday life. <br/><br/>You will receive <strong>12.40 GBP</strong> for helping us.<br/>Plus, depending on your performance you can earn an <strong>additional bonus</strong> of up to <strong>4 GBP</strong>. <br/><br/>Remember, you are free to withdraw at any time without giving a reason.</p>",
+            "<p>You will play an online computer task, which will last around approximately <strong>30 minutes</strong>. <br/><br/>You will receive <strong>12.40 GBP</strong> for helping us.<br/>Plus, depending on your performance you can earn an <strong>additional bonus</strong> of up to <strong>4 GBP</strong>. <br/><br/>Remember, you are free to withdraw at any time without giving a reason.</p>",
         },
 
         {
@@ -69,7 +69,7 @@ export const json = {
           type: "html",
           name: "info",
           html:
-            "<p> The task you complete does not pose any known risks. You will be asked to answer some questions about mood and feelings, and we will provide information about ways to seek help should you feel affected by the issues raised by these questions.</p>",
+            "<p> The task you complete does not pose any known risks.</p>",
         },
 
         {
