@@ -974,8 +974,6 @@ class PerTut extends React.Component {
         scale.
         <br />
         <br />
-        Alternatively, you can press [<strong>TAB</strong>] and use the{" "}
-        <strong>arrow</strong> keys to move the circle indicator.
         <br />
         <br />
         During the main task, once you have selected your rating, you will have
