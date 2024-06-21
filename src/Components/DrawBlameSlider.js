@@ -67,10 +67,9 @@ export function BlameSlider({ callBackValue, initialValue }) {
             onChange={handleChange}
           />
         </ThemeProvider>
-      </Box>
+      </Box> sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2 }}>
       <span className={style.confTextLeft}>I am wrong</span>
-     // <span className={style.confTextMiddle}>Not certain</span>
-      <span className={style.confTextMiddle} style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>Not certain</span>
+      <span className={style.confTextMiddle}>Not certain</span>
       <span className={style.confTextRight}>Other player is wrong</span>
     </Box>
   );
