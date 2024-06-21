@@ -1154,11 +1154,11 @@ class PerTut extends React.Component {
         <strong>Q{this.state.quizNum}:</strong> After choosing a battery card, <strong>one</strong> of you chose <strong>wrongly</strong>. You are very sure the other player chose wrongly. What rating would you select on the rating scale?
         <br/>
         <br/>
-        [1] The far right (Other player is 100% wrong)
+        [1] The far right (Other player is wrong)
         <br/>
-        [2] The far left (I am 100% wrong)
+        [2] The far left (I am wrong)
         <br/>
-        [3] The middle (0% - unsure)
+        [3] The middle (50% - unsure)
         <br/>
         [4] I am unsure
       </div>
@@ -1170,11 +1170,11 @@ class PerTut extends React.Component {
         <strong>Q{this.state.quizNum}:</strong> After choosing a battery card, one of you chose wrongly. You are completely unsure who chose wrongly. What rating would you select on the rating scale?
         <br/>
         <br/>
-        [1] The far right (Other player is 100% wrong)
+        [1] The far right (Other player is wrong)
         <br/>
-        [2] The far left (I am 100% wrong)
+        [2] The far left (I am wrong)
         <br/>
-        [3] The middle (0% - unsure)
+        [3] The middle (50% - unsure)
         <br/>
         [4] I am unsure
       </div>
