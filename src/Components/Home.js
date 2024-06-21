@@ -79,7 +79,7 @@ class Home extends React.Component {
           <br />
           Note: If you encounter a technical issue during the study, please take
           a screenshot of the error and send a message with details of the
-          current broswer you are using to the researcher on Profilic.
+          current browser you are using to the researcher on Profilic.
           <br />
           <br />
           <center>
