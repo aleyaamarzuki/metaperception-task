@@ -44,6 +44,12 @@
   float: left;
 }
 
+.confTextMiddle {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  float: center;
+}
+
 .confTextRight {
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
