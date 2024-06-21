@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
@@ -13,7 +12,6 @@ const theme = createTheme({
       contrastThreshold: 4.5,
       main: "#ffffff",
     },
-
     text: { primary: "#ffffff", secondary: "#ffffff" },
   },
 });
@@ -52,25 +50,25 @@ export function BlameSlider({ callBackValue, initialValue }) {
 
   return (
     <Box sx={{ width: 600 }}>
-      <Box sx={{ width: 500 }}>
-        <ThemeProvider theme={theme}>
-          <Slider
-            color="primary"
-            aria-label="Always visible"
-            step={1}
-            marks={marks}
-            min={0}
-            max={100}
-            track={false}
-            valueLabelDisplay="on"
-            value={value}
-            onChange={handleChange}
-          />
-        </ThemeProvider>
-      </Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2 }}>
-      <span className={style.confTextLeft}>I am wrong</span>
-      <span className={style.confTextMiddle}>Not certain</span>
-      <span className={style.confTextRight}>Other player is wrong</span>
+      <ThemeProvider theme={theme}>
+        <Slider
+          color="primary"
+          aria-label="Always visible"
+          step={1}
+          marks={marks}
+          min={0}
+          max={100}
+          track={false}
+          valueLabelDisplay="on"
+          value={value}
+          onChange={handleChange}
+        />
+      </ThemeProvider>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2 }}>
+        <span className={style.confTextLeft}>I am wrong</span>
+        <span className={style.confTextMiddle}>Not certain</span>
+        <span className={style.confTextRight}>Other player is wrong</span>
+      </Box>
     </Box>
   );
 }
