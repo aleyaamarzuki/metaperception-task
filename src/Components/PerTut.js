@@ -567,7 +567,7 @@ class PerTut extends React.Component {
         <span>
           Welcome to the spaceship!
           <br /> <br />
-          The ship has been damaged with an asteriod hit and we are glad you are
+          The ship has been damaged with an asteroid hit and we are glad you are
           here to help.
           <br />
           <br />
@@ -579,7 +579,7 @@ class PerTut extends React.Component {
         <span>
           Welcome to the spaceship!
           <br /> <br />
-          The ship has been damaged with an asteriod hit and we are glad you are
+          The ship has been damaged with an asteroid hit and we are glad you are
           here to help.
           <br />
           <br />
@@ -865,8 +865,6 @@ class PerTut extends React.Component {
         If you are very unsure who got it wrong, you would select a rating (around 50%) between the two ends.
         <br/>
         <br/>
-        <br/>
-        <br/>
         The other players will <strong>NOT</strong> be informed of these ratings.
         </center>
         <br />
@@ -1096,7 +1094,7 @@ class PerTut extends React.Component {
         <br />
         [2] - I would pick the right end of the scale (100% correct).
         <br />
-        [3] - I would pick somwhere in between the ends of the scale.
+        [3] - I would pick somewhere in between the ends of the scale.
         <br />
         [4] - I am unsure.
       </div>
@@ -1113,7 +1111,7 @@ class PerTut extends React.Component {
         <br />
         [2] - I would pick the right end of the scale (100% correct).
         <br />
-        [3] - I would pick somwhere in between the ends of the scale.
+        [3] - I would pick somewhere in between the ends of the scale.
         <br />
         [4] - I am unsure.
       </div>
@@ -1130,7 +1128,7 @@ class PerTut extends React.Component {
         <br />
         [2] - I would pick the right end of the scale (100% correct).
         <br />
-        [3] - I would pick somwhere in between the ends of the scale.
+        [3] - I would pick somewhere in between the ends of the scale.
         <br />
         [4] - I am unsure.
       </div>
