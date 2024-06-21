@@ -838,7 +838,6 @@ class PerTut extends React.Component {
         <center>
         If you are very sure <strong>the other player is wrong</strong> (and you chose correctly), you would select the far right of the scale (100%).
         <br/>
-        <br/>
         <br />
         <br />
         <center>
@@ -850,7 +849,6 @@ class PerTut extends React.Component {
         <br/>
         <br/>
         If you are very sure <strong>the other player is correct</strong> (and you chose wrongly), you would select the far left of the scale (0%).
-        <br/>
         <br/>
         <br />
         <br />
