@@ -1015,8 +1015,7 @@ let instruct_text6 = (
         <br />
         <br />
         <center>
-          Click or drag the indicator anywhere on the scale, or press [TAB] and
-          use the arrow keys.
+          Click or drag the indicator anywhere on the scale.
           <br />
           <br />
           Press [SPACEBAR] to submit your answer and start sorting the battery
