@@ -114,7 +114,7 @@ export const json = {
           type: "checkbox",
           name: "checkbox1",
           title:
-            "I have read the information above, and understand what the study involves.",
+            "I have read the information on the previous page, and understand what the study involves.",
           isRequired: true,
           choices: ["Yes"],
         },
@@ -168,7 +168,7 @@ export const json = {
           type: "checkbox",
           name: "checkbox7",
           title:
-            "I agree that the research project named above has been explained to me to my satisfaction and I agree to take part in this study.",
+            "I agree that the research project named on the previous page has been explained to me to my satisfaction and I agree to take part in this study.",
           isRequired: true,
           choices: ["Yes"],
         },
