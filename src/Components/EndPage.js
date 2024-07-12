@@ -127,7 +127,7 @@ class EndPage extends React.Component {
           In the two tasks, we were interested in how you evaluate your
           perceptual decision-making.
           <br /> <br />
-          Previous work have linked differences in behaviour to psychiatric
+          Previous work has linked differences in behaviour to psychiatric
           disorders, which we are aiming to understand better.
           <br />
           <br />
@@ -146,7 +146,7 @@ class EndPage extends React.Component {
     let instruct_text2 = (
       <div>
         <span>
-          If you feel that completing the questionnaires caused you any
+          If you feel that completing the task/questionnaires caused you any
           distress, please use the following contact details for help and
           support:
           <br />
