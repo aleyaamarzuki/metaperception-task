@@ -173,7 +173,7 @@ class PerTask extends React.Component {
       responseMatrix: [true, true],
       reversals: 0,
       stairDir: ["up", "up"],
-      dotStair: 4.65,
+      dotStair: 4.25,
       //dotStair: dotStair, //in log space; this is about 104 dots which is 70 dots shown for the first one
       dotStairLeft: 0,
       dotStairRight: 0,
