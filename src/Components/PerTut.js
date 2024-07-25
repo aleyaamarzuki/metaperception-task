@@ -817,7 +817,7 @@ class PerTut extends React.Component {
         <br /> 
         <br /> 
         <br /> 
-        You and the other players are eligible for a bonus of up to £x each depending on the number of points earned. Try and earn as many points as possible!
+        You and the other players are eligible for a bonus of up to £3 each depending on the number of points earned. Try and earn as many points as possible!
         </center>
         <br />
         <br />
