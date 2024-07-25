@@ -215,7 +215,23 @@ class EndPage extends React.Component {
           <br />
           <br />
           <br />
-          Please follow this link to start the questionnaires:https://redcap.extern.medizin.uni-tuebingen.de/surveys/?s=KHERMFXCYEAFTM9N
+          Please press here to be redirected to the questionnaires in a new tab:
+        <br />
+          <ul>
+            <li>
+              <span
+                className={style.link}
+                onClick={() => {
+                  this.openInNewTab(
+                    "https://redcap.extern.medizin.uni-tuebingen.de/surveys/?s=KHERMFXCYEAFTM9N"
+                  );
+                }}
+              >
+                <u>Link to Questionnaire</u>
+              </span>
+            </li>
+            <li>
+              <span
           <br />
           <br />
           You may close the tab.
