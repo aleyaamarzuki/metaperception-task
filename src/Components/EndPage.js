@@ -211,12 +211,11 @@ class EndPage extends React.Component {
     let instruct_text3 = (
       <div>
         <span>
-          You have finished the study!
+          You have finished the task!
           <br />
           <br />
           <br />
-          Please send a message to us on Proflic that you have completed the
-          task.
+          Please follow this link to start the questionnaires:https://redcap.extern.medizin.uni-tuebingen.de/surveys/?s=KHERMFXCYEAFTM9N
           <br />
           <br />
           You may close the tab.
