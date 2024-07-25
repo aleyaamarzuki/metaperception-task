@@ -55,7 +55,7 @@ export const json = {
           type: "html",
           name: "info",
           html:
-            "<p>You will play an online computer task, which will last around approximately <strong>30 minutes</strong>. <br/><br/>You will receive <strong>12.40 GBP</strong> for helping us.<br/>Plus, depending on your performance you can earn an <strong>additional bonus</strong> of up to <strong>4 GBP</strong>. <br/><br/>Remember, you are free to withdraw at any time without giving a reason.</p>",
+            "<p>You will play an online computer task, which will last around approximately <strong>30 minutes</strong>. <br/><br/>You will receive <strong>8.25 GBP</strong> for helping us.<br/>Plus, depending on your performance you can earn an <strong>additional bonus</strong> of up to <strong>3 GBP</strong>. <br/><br/>Remember, you are free to withdraw at any time without giving a reason.</p>",
         },
 
         {
