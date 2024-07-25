@@ -230,11 +230,10 @@ class EndPage extends React.Component {
                 <u>Link to Questionnaire</u>
               </span>
             </li>
-            <li>
-              <span
+            </ul>
           <br />
           <br />
-          You may close the tab.
+          You may close this tab.
         </span>
       </div>
     );
