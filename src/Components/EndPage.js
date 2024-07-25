@@ -211,7 +211,7 @@ class EndPage extends React.Component {
     let instruct_text3 = (
       <div>
         <span>
-          You have finished the task!
+          You have finished the task! You may now complete the questionnaires portion of the study.
           <br />
           <br />
           <br />
