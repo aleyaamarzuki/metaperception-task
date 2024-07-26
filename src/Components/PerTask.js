@@ -74,7 +74,7 @@ class PerTask extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
     
-    var perBonus = Math.round((2 * perCorrectPer + Number.EPSILON) * 100) / 100;
+    var perBonus = Math.round((3 * perCorrectPer + Number.EPSILON) * 100) / 100;
 
 
     var trialNumTotal = 150;
