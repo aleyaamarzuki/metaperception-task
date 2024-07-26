@@ -73,6 +73,8 @@ class PerTask extends React.Component {
 
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
+    
+    var perBonus = Math.round((2 * perCorrectPer + Number.EPSILON) * 100) / 100;
 
 
     var trialNumTotal = 150;
@@ -190,6 +192,7 @@ class PerTask extends React.Component {
       debug: false,
       memCorrectPer: memCorrectPer,
       perCorrectPer: perCorrectPer,
+      perBonus: perBonus,
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -962,7 +965,9 @@ let instruct_text6 = (
       <div>
         <span>
           Whew! Our spaceship power is now back to a good level, thanks to the
-          high charge battery cards that you have selected.
+          high charge battery cards that you have selected. 
+            <br/>
+            You and other players have earned a bonus of £{this.state.perBonus} each!
           <br />
           <br />
           <center>
@@ -1689,6 +1694,7 @@ restBreak() {
     var condition = this.state.condition;
     var perCorrectPer = this.state.correctPer;
     var memCorrectPer = this.state.memCorrectPer;
+    var perBonus = this.state.perBonus;
 
     var condUrl;
     if (condition === 1) {
@@ -1709,6 +1715,7 @@ restBreak() {
         startTime: this.state.startTime,
         perCorrectPer: perCorrectPer,
         memCorrectPer: memCorrectPer,
+        perBonus: perBonus,
       },
     });
   }
