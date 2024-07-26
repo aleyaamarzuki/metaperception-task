@@ -35,10 +35,11 @@ class Bonus extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    var memBonus = Math.round((2 * memCorrectPer + Number.EPSILON) * 100) / 100; // 2 dec pl
+    //var memBonus = Math.round((2 * memCorrectPer + Number.EPSILON) * 100) / 100; // 2 dec pl
     var perBonus = Math.round((2 * perCorrectPer + Number.EPSILON) * 100) / 100; // 2 dec pl
+    //var totalBonus = Math.round((memBonus + perBonus) * 100 + Number.EPSILON) / 100;
     var totalBonus =
-      Math.round((memBonus + perBonus) * 100 + Number.EPSILON) / 100;
+      Math.round(perBonus * 100 + Number.EPSILON) / 100;
 
     //////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////
