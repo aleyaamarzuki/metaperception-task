@@ -1922,7 +1922,7 @@ restBreak() {
             </span>
             <br/>
             <br/>
-              Rate how likely it is that you or the other player chose wrongly.  
+              Rate how likely it is that the other player chose wrongly.  
               <br />
               <br />
               </center>
