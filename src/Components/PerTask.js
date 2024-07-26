@@ -74,7 +74,6 @@ class PerTask extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
     
-    var perBonus = Math.round((3 * perCorrectPer + Number.EPSILON) * 100) / 100;
 
 
     var trialNumTotal = 15;
@@ -192,7 +191,7 @@ class PerTask extends React.Component {
       debug: false,
       memCorrectPer: memCorrectPer,
       perCorrectPer: perCorrectPer,
-      perBonus: perBonus,
+      perBonus: 0,
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -471,7 +470,11 @@ class PerTask extends React.Component {
     var correctPer =
       Math.round((utils.getAvg(correctMat) + Number.EPSILON) * 100) / 100; //2 dec pl
 
+    var perBonus = Math.round((3 * correctPer + Number.EPSILON) * 100) / 100;
 
+
+    console.log("correctper "+ correctPer)
+    console.log("bonus " + perBonus)
 
 
 
@@ -484,10 +487,10 @@ class PerTask extends React.Component {
   } else if (this.state.blockNum === 3) {
     results = this.state.results3;
   }
-  console.log(this.state.results1);
-  console.log(this.state.results2);
-  console.log(this.state.results3);
-  console.log(results);
+  //console.log(this.state.results1);
+  //console.log(this.state.results2);
+  //console.log(this.state.results3);
+  //console.log(results);
 
     var blame; 
     if (correct === 1 && results[this.state.trialNumInBlock-1] === 1) {
@@ -525,6 +528,7 @@ class PerTask extends React.Component {
       correctMat: correctMat,
       correctPer: correctPer,
       blame: blame,
+      perBonus: perBonus,
     });
 
     setTimeout(
@@ -748,6 +752,7 @@ class PerTask extends React.Component {
       } else if (this.state.blockNum == 3) {
         points = this.state.pointCounter[2]
       };
+
 
 
 
@@ -1411,6 +1416,7 @@ let instruct_text6 = (
       correctMat: this.state.correctMat,
       correctPer: this.state.correctPer,
       orderValue: this.state.orderValue,
+      perBonus: this.state.perBonus,
 
       // staircase parameters
       responseMatrix: this.state.responseMatrix,
