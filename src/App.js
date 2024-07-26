@@ -16,7 +16,6 @@ function App() {
       <Route path="StartPage" element={<StartPage />} />
       <Route path="PerTut" element={<PerTut />} />
       <Route path="PerTask" element={<PerTask />} />
-      <Route path="Bonus" element={<Bonus />} />
       <Route path="End" element={<EndPage />} />
     </Routes>
   );
