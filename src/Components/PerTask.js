@@ -77,7 +77,7 @@ class PerTask extends React.Component {
     var perBonus = Math.round((3 * perCorrectPer + Number.EPSILON) * 100) / 100;
 
 
-    var trialNumTotal = 150;
+    var trialNumTotal = 15;
     var blockNumTotal = 3; //3
     var trialNumPerBlock = Math.round(trialNumTotal / blockNumTotal);
 
