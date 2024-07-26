@@ -832,7 +832,7 @@ class PerTut extends React.Component {
       <div>
         In cases where one player chose wrongly, you will not be told who it is. 
         Instead, you will have to indicate the extent to which you think you or the other player chose wrongly.
-        After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that you or the other player is wrong</strong>. 
+        After being shown that one person got it wrong, we will show you a rating scale to rate the <strong> probability that the other player is wrong</strong>. 
         <br/>
         <br/>
         <center>
