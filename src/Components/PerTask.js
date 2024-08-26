@@ -86,7 +86,7 @@ class PerTask extends React.Component {
       .concat(Array(Math.round(trialNumTotal / 2)).fill(2));
     utils.shuffle(stimPos);
 
-    var lowProb = 0.4; //changed from 0.54
+    var lowProb = 0.2; //changed from 0.54
     var mediumProb = 0.7;
     var highProb = 0.9;
 
