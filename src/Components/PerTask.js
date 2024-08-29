@@ -76,8 +76,8 @@ class PerTask extends React.Component {
     
 
 
-    var trialNumTotal = 150;
-    var blockNumTotal = 3; //3
+    var trialNumTotal = 10;
+    var blockNumTotal = 2; //changed
     var trialNumPerBlock = Math.round(trialNumTotal / blockNumTotal);
 
     //the stim position
@@ -86,11 +86,10 @@ class PerTask extends React.Component {
       .concat(Array(Math.round(trialNumTotal / 2)).fill(2));
     utils.shuffle(stimPos);
 
-    var lowProb = 0.2; //changed from 0.54
-    var mediumProb = 0.7;
-    var highProb = 0.9;
+    var lowProb = 0.2; 
+    var highProb = 0.9; // removed medium prob
 
-    var PlayerProbs = [[lowProb, mediumProb, highProb], [lowProb, highProb, mediumProb], [mediumProb, lowProb, highProb], [mediumProb, highProb, lowProb], [highProb, mediumProb, lowProb],[highProb, lowProb, mediumProb]]; 
+    var PlayerProbs = [[lowProb, highProb], [highProb, lowProb]]; // changed
 
     var PlayerProbsOrder = PlayerProbs[Math.floor(Math.random() * 7)];
     
@@ -163,9 +162,9 @@ class PerTask extends React.Component {
 
       results1: [],
       results2:[],
-      results3: [],
+      //results3: [], //changed
 
-      pointCounter: [0, 0, 0],
+      pointCounter: [0, 0], //changed
 
       //dot paramters
       dotRadius: 5,
@@ -271,7 +270,7 @@ class PerTask extends React.Component {
   if (whichButton === 3 && curInstructNum === 4) {
     const results1 = [];
     const results2 = [];
-    const results3 = [];
+    //const results3 = []; // changed
     
     const trialNumPerBlock = this.state.trialNumPerBlock;
 
@@ -295,14 +294,14 @@ class PerTask extends React.Component {
 
     results1.push(...generateResults(this.state.PlayerProbsOrder[0], trialNumPerBlock));
     results2.push(...generateResults(this.state.PlayerProbsOrder[1], trialNumPerBlock));
-    results3.push(...generateResults(this.state.PlayerProbsOrder[2], trialNumPerBlock));
+    //results3.push(...generateResults(this.state.PlayerProbsOrder[2], trialNumPerBlock)); //changed
     // end of change to code
 
     // changed this to fix looping during Block 1 global rating
     this.setState({
         results1: results1,
         results2: results2,
-        results3: results3,
+        //results3: results3, //changed
         instructScreen: true,
         taskScreen: false,
         quizScreen: false,
@@ -479,29 +478,29 @@ class PerTask extends React.Component {
 
 
 
-  var results;
+  var results; //change this
   if (this.state.blockNum === 1) {
     results = this.state.results1;
   } else if (this.state.blockNum === 2) {
     results = this.state.results2;
-  } else if (this.state.blockNum === 3) {
-    results = this.state.results3;
-  }
+  } //else if (this.state.blockNum === 3) { //changed
+    //results = this.state.results3;
+  //}
   //console.log(this.state.results1);
   //console.log(this.state.results2);
   //console.log(this.state.results3);
   //console.log(results);
 
-    var blame; 
+    var blame; //change this
     if (correct === 1 && results[this.state.trialNumInBlock-1] === 1) {
       blame = 1;
       if (this.state.blockNum == 1) {
         this.state.pointCounter[0] += 1;
       } else if (this.state.blockNum == 2) {
         this.state.pointCounter[1] += 1;
-      } else if (this.state.blockNum == 3) {
-        this.state.pointCounter[2] += 1;
-      }
+      } //else if (this.state.blockNum == 3) {
+        //this.state.pointCounter[2] += 1;
+      //} //changed
       
     } else if (correct === 0 && results[this.state.trialNumInBlock-1] === 0) {
       blame = 2; 
@@ -509,10 +508,10 @@ class PerTask extends React.Component {
         this.state.pointCounter[0] -= 1;
       } else if (this.state.blockNum == 2) {
         this.state.pointCounter[1] -= 1;
-      } else if (this.state.blockNum == 3) {
-        this.state.pointCounter[2] -= 1;
-      }
-    } else if ((correct === 0 && results[this.state.trialNumInBlock-1] === 1) || (correct === 1 && results[this.state.trialNumInBlock-1] === 0)) {
+      } //else if (this.state.blockNum == 3) {
+        //this.state.pointCounter[2] -= 1;
+      //} //changed
+    } else if ((correct === 0 && results[this.state.trialNumInBlock-1] === 1) || (correct === 1 && results[this.state.trialNumInBlock-1] === 0)) { 
       blame = 3;
     };
 
@@ -744,14 +743,14 @@ class PerTask extends React.Component {
   // before we start the task
   instructText(instructNum) {
 
-    let points;
+    let points; 
     if (this.state.blockNum == 1) {
       points = this.state.pointCounter[0]
       } else if (this.state.blockNum == 2) {
         points = this.state.pointCounter[1]
-      } else if (this.state.blockNum == 3) {
-        points = this.state.pointCounter[2]
-      };
+      } //else if (this.state.blockNum == 3) {
+        //points = this.state.pointCounter[2]
+      //}; //changed
 
 
 
@@ -897,12 +896,12 @@ class PerTask extends React.Component {
     );
 
 
-let astronautImage;
-if (this.state.blockNum === 1) {
+let astronautImage; 
+//if (this.state.blockNum === 1) {
   astronautImage = this.state.astronaut_purple;
-} else if (this.state.blockNum === 2) {
-  astronautImage = this.state.astronaut;
-}
+//} else if (this.state.blockNum === 2) {
+//  astronautImage = this.state.astronaut;
+//}
 
 let instruct_text6 = (
   <div>
@@ -1854,12 +1853,12 @@ restBreak() {
           this.state.blameLevel = 200;
           let points;
           if (this.state.blockNum == 1) {
-            points = this.state.pointCounter[0]
+            points = this.state.pointCounter[0] 
             } else if (this.state.blockNum == 2) {
               points = this.state.pointCounter[1]
-            } else if (this.state.blockNum == 3) {
-              points = this.state.pointCounter[2]
-            }
+            } //else if (this.state.blockNum == 3) {
+              //points = this.state.pointCounter[2]
+            //} //changed
 
           text = (<div>
             <center>
@@ -1887,12 +1886,12 @@ restBreak() {
           this.state.blameLevel = 200;
           let points;
           if (this.state.blockNum == 1) {
-            points = this.state.pointCounter[0]
+            points = this.state.pointCounter[0] //change this
             } else if (this.state.blockNum == 2) {
               points = this.state.pointCounter[1]
-            } else if (this.state.blockNum == 3) {
-              points = this.state.pointCounter[2]
-            }
+            } //else if (this.state.blockNum == 3) {
+              //points = this.state.pointCounter[2]
+            //} //changed
           text = (<div>
             <center>
             You both made the wrong choice. 
@@ -1918,12 +1917,12 @@ restBreak() {
           //console.log("here 3");
           let points;
           if (this.state.blockNum == 1) {
-            points = this.state.pointCounter[0]
+            points = this.state.pointCounter[0] //change this
             } else if (this.state.blockNum == 2) {
               points = this.state.pointCounter[1]
-            } else if (this.state.blockNum == 3) {
-              points = this.state.pointCounter[2]
-            }
+            } //else if (this.state.blockNum == 3) {
+              //points = this.state.pointCounter[2]
+            //} //changed
           text = (
             <div>
               <center>
