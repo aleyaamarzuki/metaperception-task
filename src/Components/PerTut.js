@@ -48,7 +48,7 @@ class PerTut extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    var trialNumTotal = 5 //25;
+    var trialNumTotal = 25;
 
     //the stim position
     var pracStimPos = Array(Math.round(trialNumTotal / 2))
@@ -768,7 +768,7 @@ class PerTut extends React.Component {
         <br/>
         <br /> 
         As this is a very sensitive operation, we want to make sure the chosen battery cards have a high charge as often as possible. For this, we need more people making decisions! 
-        We will be pairing you up with other players (3 total) <strong> one at a time </strong> who have sorted the batteries earlier. 
+        We will be pairing you up with other players (2 total) <strong> one at a time </strong> who have sorted the batteries earlier. 
         Each time, you will see the same battery cards that another player has seen. After you choose a card, you will be informed:
         <br/>
         <br /> 
