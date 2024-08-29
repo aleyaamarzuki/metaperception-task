@@ -787,7 +787,7 @@ class PerTask extends React.Component {
     let instruct_text2 = (
       <div>
         <span>
-        Also, remember that we will be pairing your performance with other players. There will be 3 sections in this task, and <strong> in each section we will pair your performance with a different player</strong>. 
+        Also, remember that we will be pairing your performance with other players. There will be 2 sections in this task, and <strong> in each section we will pair your performance with a different player</strong>. 
         After you rate your confidence, you will be shown the following feedback:
       <center>
           <br/>
