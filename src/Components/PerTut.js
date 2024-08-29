@@ -48,7 +48,7 @@ class PerTut extends React.Component {
     const memCorrectPer = this.props.state.memCorrectPer;
     const perCorrectPer = this.props.state.perCorrectPer; //if perception task is done, it will be filled, else zero
 
-    var trialNumTotal = 25;
+    var trialNumTotal = 5 //25;
 
     //the stim position
     var pracStimPos = Array(Math.round(trialNumTotal / 2))
