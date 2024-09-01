@@ -87,7 +87,7 @@ class PerTask extends React.Component {
     utils.shuffle(stimPos);
 
     var lowProb = 0.2; 
-    var highProb = 0.9; // removed medium prob
+    var highProb = 0.92; // removed medium prob
 
     var PlayerProbs = [[lowProb, highProb], [highProb, lowProb]]; // changed
 
