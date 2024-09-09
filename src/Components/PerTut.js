@@ -801,7 +801,7 @@ class PerTut extends React.Component {
 
     let instruct_text7 = (
       <div>
-        In the main task, you can also earn points that you will share with the other players!
+        In the main task, you must work together with other players to get as many points as possible!
         <br /> 
         <br /> 
         <br /> 
@@ -817,7 +817,7 @@ class PerTut extends React.Component {
         <br /> 
         <br /> 
         <br /> 
-        You and the other players are eligible for a bonus of up to £3 each depending on the number of points earned. Try and earn as many points as possible!
+        You and the other players are eligible for a shared bonus of up to £3 each depending on the number of points earned. Try and earn as many points as possible!
         </center>
         <br />
         <br />
@@ -863,7 +863,7 @@ class PerTut extends React.Component {
         If you are very unsure who got it wrong, you would select a rating (around 50%) between the two ends.
         <br/>
         <br/>
-        The other players will <strong>NOT</strong> be informed of these ratings.
+        The other players will <strong>NOT</strong> be informed of these ratings. But the shared bonus depends on everyone performing as well as possible!
         </center>
         <br />
         <br />
