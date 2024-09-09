@@ -851,6 +851,9 @@ class PerTask extends React.Component {
         </center>
         <br/>
         <br/>
+        Player 1 will be informed of the shared points and bonus won after you finish the task.
+        <br/>
+        <br/>
         <center>
             Press the [<strong>SPACEBAR</strong>] when you are ready to
             start.
@@ -916,6 +919,9 @@ let instruct_text6 = (
       <center>
         <img src={astronautImage} width={180} alt="astronaut" />
       </center>
+      <br/>
+      <br/>
+      Player 2 will be informed of the shared points and bonus won after you finish the task.
       <br/>
       <br/>
       <br/>
