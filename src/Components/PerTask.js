@@ -1139,16 +1139,8 @@ let instruct_text6 = (
   taskBegin() {
     // remove access to left/right/space keys for the instructions
     document.removeEventListener("keyup", this._handleInstructKey);
-    document.removeEventListener("keyup", this._handleBeginKey);
+    //document.removeEventListener("keyup", this._handleBeginKey);
     // push to render fixation for the first trial
-    
-    // changed to try stop people getting stuck at block 1; Transition to the task section
-    this.setState({
-        instructScreen: false,  // Hide instruction screen
-        taskScreen: true,       // Show task screen
-        quizScreen: false,
-        taskSection: "fixation"    // Start the task
-    });
             
     setTimeout(
       function () {
