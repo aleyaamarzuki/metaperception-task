@@ -1139,7 +1139,7 @@ let instruct_text6 = (
   taskBegin() {
     // remove access to left/right/space keys for the instructions
     document.removeEventListener("keyup", this._handleInstructKey);
-    //document.removeEventListener("keyup", this._handleBeginKey);
+    document.removeEventListener("keyup", this._handleBeginKey);
     // push to render fixation for the first trial
             
     setTimeout(
