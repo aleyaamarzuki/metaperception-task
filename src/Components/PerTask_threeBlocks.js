@@ -250,17 +250,56 @@ class PerTask extends React.Component {
     }
   };
 
-  // This handles instruction screen within the component USING KEYBOARD
+// This handles instruction screen within the component USING KEYBOARD
   handleInstruct(keyPressed) {
     var curInstructNum = this.state.instructNum;
     var whichButton = keyPressed;
 
+    const results1 = [];
+    const results2 = [];
+    const results3 = [];
+    
+    const trialNumPerBlock = this.state.trialNumPerBlock;
+
+    function generateResults(prob, numTrials) {
+      const numCorrect = Math.round(prob * numTrials);
+      const results = new Array(numTrials).fill(0);
+      
+      // Fill with correct responses
+      for (let i = 0; i < numCorrect; i++) {
+        results[i] = 1;
+      }
+      
+      // Shuffle the array to randomize the order of correct responses
+      for (let i = results.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [results[i], results[j]] = [results[j], results[i]];
+      }
+      
+      return results;
+    }
+
+    results1.push(...generateResults(this.state.PlayerProbsOrder[0], trialNumPerBlock));
+    results2.push(...generateResults(this.state.PlayerProbsOrder[1], trialNumPerBlock));
+    results3.push(...generateResults(this.state.PlayerProbsOrder[2], trialNumPerBlock));
+    // end of change to code
+
     if ((whichButton === 1 && curInstructNum === 2) || (whichButton === 1 && curInstructNum === 3) || (whichButton === 1 && curInstructNum === 4)) {
       // from page 2 , I can move back a page
-      this.setState({ instructNum: curInstructNum - 1 });
+      this.setState({ 
+        instructNum: curInstructNum - 1,
+        results1: results1,
+        results2: results2,
+        results3: results3
+      });
     } else if ((whichButton === 2 && curInstructNum === 1) || (whichButton === 2 && curInstructNum === 2) || (whichButton === 2 && curInstructNum === 3)) {
       // from page 1 , I can move forward a page
-      this.setState({ instructNum: curInstructNum + 1 });
+      this.setState({ 
+        instructNum: curInstructNum + 1,
+        results1: results1,
+        results2: results2,
+        results3: results3
+      });
     }
   }
 
