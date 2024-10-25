@@ -806,7 +806,11 @@ class PerTask extends React.Component {
         //points = this.state.pointCounter[2]
       //}; //changed
 
+      let prolific;
+      prolific = Math.floor(Math.random() * 9999);
 
+
+    
 
 
     
@@ -896,7 +900,7 @@ class PerTask extends React.Component {
 
     let instruct_text4 = (
       <div>
-        You are now starting to play against Player 1:
+        You are now starting to play against Player 1 whose Prolific ID ends with the following 4 digits: {prolific}
         <br/>
         <br/>
         <br/>
@@ -967,7 +971,7 @@ let instruct_text6 = (
       {this.state.blockNumTotal} blocks!
       <br />
       <br />
-      You can now pause for a break. In the next block you will be paired with a <strong>different</strong> player.
+      You can now pause for a break. In the next block you will be paired with a <strong>different</strong> player whose Prolific ID ends with the following 4 digits: {prolific}
       <br />
       <br />
       <center>
@@ -1928,9 +1932,6 @@ restBreak() {
            <strong> + 1 Point </strong>
             <br/>
             <br/>
-            <span className={style.points} >
-              <strong> Total Points: {points}       </strong>
-              </span>
             </center>
               <br />
               <br />
@@ -1960,9 +1961,6 @@ restBreak() {
             <strong> - 1 Point </strong>
             <br/>
             <br/>
-            <span className={style.points}>
-              <strong> Total Points: {points} </strong>
-            </span>
             </center>
               <br />
               <br />
@@ -1990,9 +1988,6 @@ restBreak() {
               One of you has chosen the wrong battery card. 
               <br/>
             <br/>
-            <span className={style.points}>
-              <strong> Total Points: {points}   </strong>
-            </span>
             <br/>
             <br/>
               Rate how likely it is that the other player chose wrongly.  
