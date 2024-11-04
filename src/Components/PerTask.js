@@ -76,7 +76,7 @@ class PerTask extends React.Component {
     
 
 
-    var trialNumTotal = 10;
+    var trialNumTotal = 150;
     var blockNumTotal = 2; //changed
     var trialNumPerBlock = Math.round(trialNumTotal / blockNumTotal);
 
@@ -926,7 +926,7 @@ class PerTask extends React.Component {
         <span>
           You have completed {this.state.blockNum} out of{" "}
           {this.state.blockNumTotal} blocks!
-          Well done, you have finished the Block 1!
+          Well done!
           <br/>
           <br/>
           You will now be taken to a page where you can take a break through pressing <strong>SPACEBAR</strong>. But first answer the following questions:
