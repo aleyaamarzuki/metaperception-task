@@ -900,7 +900,7 @@ class PerTask extends React.Component {
 
     let instruct_text4 = (
       <div>
-        You are now starting to play against Player 1 whose Prolific ID ends with the following 4 digits: {prolific}
+        You are now starting to play against Player 1 whose Prolific ID ends with the following 4 digits: <strong>{prolific}</strong>
         <br/>
         <br/>
         <br/>
@@ -926,7 +926,7 @@ class PerTask extends React.Component {
         <span>
           You have completed {this.state.blockNum} out of{" "}
           {this.state.blockNumTotal} blocks!
-          Well done, you and the other player scored {points} points!
+          Well done, you have finished the Block 1!
           <br/>
           <br/>
           You will now be taken to a page where you can take a break through pressing <strong>SPACEBAR</strong>. But first answer the following questions:
@@ -971,7 +971,7 @@ let instruct_text6 = (
       {this.state.blockNumTotal} blocks!
       <br />
       <br />
-      You can now pause for a break. In the next block you will be paired with a <strong>different</strong> player whose Prolific ID ends with the following 4 digits: {prolific}
+      You can now pause for a break. In the next block you will be paired with a <strong>different</strong> player whose Prolific ID ends with the following 4 digits: <strong>{prolific}</strong>
       <br />
       <br />
       <center>
