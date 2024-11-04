@@ -943,7 +943,7 @@ class PerTask extends React.Component {
           <br />
           <br />
         </center>
-        How motivated were you to prevent the loss of points for yourself or the other player?
+        How motivated were you to win points for yourself vs the other player?
         <br />
         <br/>
         <center>
@@ -1011,7 +1011,7 @@ let instruct_text6 = (
         </center>
         <br />
         <br/>
-        How motivated were you to prevent the loss of points for yourself or the other player?
+        How motivated were you to win points for yourself vs the other player??
         <br />
         <br/>
         <center>
