@@ -807,7 +807,7 @@ class PerTask extends React.Component {
       //}; //changed
 
       let prolific;
-      prolific = Math.floor(Math.random() * 9999);
+      prolific = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
 
 
     
