@@ -223,7 +223,7 @@ class EndPage extends React.Component {
                 className={style.link}
                 onClick={() => {
                   this.openInNewTab(
-                    "https://redcap.extern.medizin.uni-tuebingen.de/surveys/?s=DLTWF8H48CPW3CR7"
+                    "https://redcap.extern.medizin.uni-tuebingen.de/surveys/?s=WXNTKETDTW3XHRR7"
                   );
                 }}
               >
