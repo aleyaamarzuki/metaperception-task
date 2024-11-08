@@ -121,7 +121,7 @@ class PerTut extends React.Component {
       responseMatrix: [true, true],
       reversals: 0,
       stairDir: ["up", "up"],
-      dotStair: 4.65, //in log space; this is about 104 dots which is 70 dots shown for the first one
+      dotStair: 3.80, //4.65, //in log space; this is about 104 dots which is 70 dots shown for the first one
 
       dotStairLeft: 0,
       dotStairRight: 0,
@@ -247,7 +247,7 @@ class PerTut extends React.Component {
         responseMatrix: [true, true],
         reversals: 0,
         stairDir: ["up", "up"],
-        dotStair: 4.65,
+        dotStair: 3.80, //4.65,
       });
       setTimeout(
         function () {
@@ -1211,7 +1211,7 @@ class PerTut extends React.Component {
       responseMatrix: [true, true],
       reversals: 0,
       stairDir: ["up", "up"],
-      dotStair: 4.65, //in log space; this is about 104 dots which is 70 dots shown for the first one});
+      dotStair: 3.80, //4.65, //in log space; this is about 104 dots which is 70 dots shown for the first one});
       // push to render fixation for the first trial
     });
     setTimeout(
