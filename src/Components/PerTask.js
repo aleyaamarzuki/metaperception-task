@@ -76,7 +76,7 @@ class PerTask extends React.Component {
     
 
 
-    var trialNumTotal = 6; //150;
+    var trialNumTotal = 150;
     var blockNumTotal = 2; //changed
     var trialNumPerBlock = Math.round(trialNumTotal / blockNumTotal);
 
